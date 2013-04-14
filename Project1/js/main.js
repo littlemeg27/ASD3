@@ -46,7 +46,7 @@
         $('#dataPage').on('pageinit', function()
         {
             var foo = 0;
-            if(foo == 0)
+            if(foo == 1)
             {
             $("#gameList").empty();
         
@@ -77,18 +77,18 @@
             {
 	            alert("im in the else"); 
 	            
-	            localStorage.getItem(id, JSON.stringify(item));
+	            localStorage.getItem(id, JSON.stringify(item)); //Getting from localStorage
 	        
 		        for(var i=0, j=data.json.length; i<j; i++)//for loop to read the whole json
 	            {
-	                 var game = data.json[i];
+	                 var game = data.json[i]; //Not sure if this is right, just a guess
 	                                    
 	                 $(''+
 	                 '<li>'+ game.lastName +'</li>'+
 	                 '<li>'+ game.phoneNumber +'</li>'+
 	                 '<li>'+ game.numberOfPeople +'</li>'+
 	                 '<li>'+ game.park +'</li>'
-	                 ).appendTo("#gameList").listview;
+	                 ).appendTo("#gameList").listview; //Appending to the li
 	            }
 	            $('#gameList').listview('refresh');
 	          
