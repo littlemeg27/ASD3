@@ -1,0 +1,22 @@
+/* 
+Brenna Pavlinchak
+MiU 1212
+Project 1
+This is the css style sheet for my addItem page
+11/4/2012 
+*/
+
+
+		label.error
+		{
+			display:block;
+			margin:10px 0px;
+			color: red;
+		}
+		
+		#errorFormLink
+		{
+			display: none; !important
+		}
+		
+		
