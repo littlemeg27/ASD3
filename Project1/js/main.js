@@ -43,7 +43,7 @@
                         
         });
         
-        $('#dataPage').on('pageinit', function()
+        $('#dataPage').on('pageinit', function(item, data)
         {
             var foo = 0;
             if(foo == 1)
@@ -56,7 +56,7 @@
                        dataType: 'json', //Getting JSON data, located in data.json   
                        success: function(data)
                        {  
-                              for(var i=0, j=data.json.length; i<j; i++)//for loop to read the whole json
+                              for(var i=0, j=localStorage.length; i<j; i++)//for loop to read the whole json
                               {
                                     var game = data.json[i];
                                     
@@ -75,23 +75,23 @@
             
             else
             {
-	            alert("im in the else"); 
-	            
-	            localStorage.getItem(id, JSON.stringify(item)); //Getting from localStorage
-	        
-		        for(var i=0, j=data.json.length; i<j; i++)//for loop to read the whole json
-	            {
-	                 var game = data.json[i]; //Not sure if this is right, just a guess
-	                                    
-	                 $(''+
-	                 '<li>'+ game.lastName +'</li>'+
-	                 '<li>'+ game.phoneNumber +'</li>'+
-	                 '<li>'+ game.numberOfPeople +'</li>'+
-	                 '<li>'+ game.park +'</li>'
-	                 ).appendTo("#gameList").listview; //Appending to the li
-	            }
-	            $('#gameList').listview('refresh');
-	          
+                alert("im in the else"); 
+                
+                localStorage.getItem(JSON.stringify(item)); //Getting from localStorage
+            
+                for(var i=0, j=localStorage.length; i<j; i++)//for loop to read the whole json
+                {
+                   //  var game = data.json[i]; //Not sure if this is right, just a guess
+                                        
+                     $(''+
+                     '<li>'+ lastName +'</li>'+
+                     '<li>'+ phoneNumber +'</li>'+
+                     '<li>'+ numberOfPeople +'</li>'+
+                     '<li>'+ park +'</li>'
+                     ).appendTo("#gameList").listview; //Appending to the li
+                }
+                $('#gameList').listview('refresh');
+              
             }
             
          });
@@ -134,3 +134,9 @@
                 });  
            
         }); 
+
+
+
+
+
+
