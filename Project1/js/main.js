@@ -78,10 +78,10 @@
                 alert("im in the else"); 
                 
                 localStorage.getItem(JSON.stringify(item)); //Getting from localStorage
+                JSON.parse(item);
             
                 for(var i=0, j=localStorage.length; i<j; i++)//for loop to read the whole json
                 {
-                   //  var game = data.json[i]; //Not sure if this is right, just a guess
                                         
                      $(''+
                      '<li>'+ lastName +'</li>'+
