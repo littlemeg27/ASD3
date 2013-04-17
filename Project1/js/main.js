@@ -43,7 +43,7 @@
                         
         });
         
-        $('#dataPage').on('pageinit', function(item, data)
+        $('#dataPage').on('pageinit', function(item, data, key)
         {
             var foo = 0;
             if(foo == 1)
@@ -78,14 +78,11 @@
                 alert("im in the else"); 
                 console.log("1", item);
                 
-                localStorage.getItem(JSON.parse(key)); //Getting from localStorage
-                console.log("2", item);
-            
                 for(var i=0, j=localStorage.length; i<j; i++) //for loop to read the whole json
                 {
                     var key = localStorage.key(i);
                     var value = localStorage.getItem(key);
-                    var list = JSON.parse(value);
+                    var list = JSON.parse(item);
                     console.log("3", item);
 
                      $(''+
