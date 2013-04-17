@@ -82,6 +82,7 @@
                 {
                     var key = localStorage.key(i);
                     var value = localStorage.getItem(key);
+                    console.log("2", item);
                     var list = JSON.parse(item);
                     console.log("3", item);
 
