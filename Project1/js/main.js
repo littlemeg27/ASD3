@@ -77,8 +77,7 @@
             {
                 alert("im in the else"); 
                 
-                localStorage.getItem(JSON.stringify(item)); //Getting from localStorage
-                JSON.parse(item[1]);
+                localStorage.getItem(JSON.parse(item)); //Getting from localStorage
             
                 for(var i=0, j=localStorage.length; i<j; i++)//for loop to read the whole json
                 {
