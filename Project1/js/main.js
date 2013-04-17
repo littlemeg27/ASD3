@@ -78,9 +78,9 @@
                 alert("im in the else"); 
                 
                 localStorage.getItem(JSON.parse(item)); //Getting from localStorage
-                var item = JSON.parse(item);
+                var list = JSON.parse(item);
             
-                for(var i=0, j=localStorage.length; i<j; i++)//for loop to read the whole json
+                for(var i=0, j=localStorage.length; i<j; i++) //for loop to read the whole json
                 {
                                         
                      $(''+
