@@ -29,10 +29,10 @@
                     
                     var item = JSON.stringify(
                     {
-                        lastName        : $("#lastName").val(),
-                        phoneNumber     : $("#phoneNumber").val(),
-                        numberOfPeople  : $("#numberOfPeople").val(),
-                        park            : $("#park").val()
+                        "lastName"        : $("#lastName").val(),
+                        "phoneNumber"     : $("#phoneNumber").val(),
+                        "numberOfPeople"  : $("#numberOfPeople").val(),
+                        "park"            : $("#park").val()
                     });
                     
                     localStorage.setItem(id, JSON.stringify(item));
