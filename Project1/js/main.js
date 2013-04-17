@@ -69,20 +69,23 @@
                               }
                               $('#gameList').listview('refresh');
                         } 
-                });
+                     });
                 
                  } 
             
             else
             {
                 alert("im in the else"); 
+                console.log("1", item);
                 
                 localStorage.getItem(JSON.parse(item)); //Getting from localStorage
-                var list = JSON.parse(item);
+                console.log("2", item);
             
                 for(var i=0, j=localStorage.length; i<j; i++) //for loop to read the whole json
                 {
-                                        
+                var list = JSON.parse(item);
+                console.log("3", item);
+
                      $(''+
                      '<li>'+ list.lastName +'</li>'+
                      '<li>'+ list.phoneNumber +'</li>'+
