@@ -78,15 +78,16 @@
                 alert("im in the else"); 
                 
                 localStorage.getItem(JSON.parse(item)); //Getting from localStorage
+                var item = JSON.parse(item);
             
                 for(var i=0, j=localStorage.length; i<j; i++)//for loop to read the whole json
                 {
                                         
                      $(''+
-                     '<li>'+ lastName +'</li>'+
-                     '<li>'+ phoneNumber +'</li>'+
-                     '<li>'+ numberOfPeople +'</li>'+
-                     '<li>'+ park +'</li>'
+                     '<li>'+ list.lastName +'</li>'+
+                     '<li>'+ list.phoneNumber +'</li>'+
+                     '<li>'+ list.numberOfPeople +'</li>'+
+                     '<li>'+ list.park +'</li>'
                      ).appendTo("#gameList").listview(); //Appending to the li
                 }
                 $('#gameList').listview('refresh');
