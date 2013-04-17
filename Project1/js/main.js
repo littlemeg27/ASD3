@@ -65,7 +65,7 @@
                                     '<li>'+ game.phoneNumber +'</li>'+
                                     '<li>'+ game.numberOfPeople +'</li>'+
                                     '<li>'+ game.park +'</li>'
-                                    ).appendTo("#gameList").listview;
+                                    ).appendTo("#gameList").listview();
                               }
                               $('#gameList').listview('refresh');
                         } 
@@ -78,17 +78,17 @@
                 alert("im in the else"); 
                 
                 localStorage.getItem(JSON.stringify(item)); //Getting from localStorage
-                list = JSON.parse(item);
+                JSON.parse(item[1]);
             
                 for(var i=0, j=localStorage.length; i<j; i++)//for loop to read the whole json
                 {
                                         
                      $(''+
-                     '<li>'+ list.lastName +'</li>'+
-                     '<li>'+ list.phoneNumber +'</li>'+
-                     '<li>'+ list.numberOfPeople +'</li>'+
-                     '<li>'+ list.park +'</li>'
-                     ).appendTo("#gameList").listview; //Appending to the li
+                     '<li>'+ lastName +'</li>'+
+                     '<li>'+ phoneNumber +'</li>'+
+                     '<li>'+ numberOfPeople +'</li>'+
+                     '<li>'+ park +'</li>'
+                     ).appendTo("#gameList").listview(); //Appending to the li
                 }
                 $('#gameList').listview('refresh');
               
@@ -134,6 +134,12 @@
                 });  
            
         }); 
+
+
+
+
+
+
 
 
 
