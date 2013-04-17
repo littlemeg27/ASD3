@@ -78,12 +78,13 @@
                 alert("im in the else"); 
                 console.log("1", item);
                 
-                localStorage.getItem(JSON.parse(key)); //Getting from localStorage
+                var list = localStorage.key(i)
+
                 console.log("2", item);
             
                 for(var i=0, j=localStorage.length; i<j; i++) //for loop to read the whole json
                 {
-                var list = localStorage.key(i)
+                localStorage.getItem(JSON.parse(key)); //Getting from localStorage
                 console.log("3", item);
 
                      $(''+
