@@ -27,12 +27,11 @@
                         id = key;
                     }
                     
-                    var item = JSON.stringify(
                     {
-                        "lastName"        : $("#lastName").val(),
-                        "phoneNumber"     : $("#phoneNumber").val(),
-                        "numberOfPeople"  : $("#numberOfPeople").val(),
-                        "park"            : $("#park").val()
+                      "lastName"        : $("#lastName").val(),
+                      "phoneNumber"     : $("#phoneNumber").val(),
+                      "numberOfPeople"  : $("#numberOfPeople").val(),
+                      "park"            : $("#park").val()
                     });
                     
                     localStorage.setItem(id, JSON.stringify(item));
@@ -82,9 +81,7 @@
                 {
                     var key = localStorage.key(i);
                     var value = localStorage.getItem(key);
-                    console.log("2", item);
-                    var list = JSON.parse(item);
-                    console.log("3", item);
+                    var list = JSON.parse(value);
 
                      $(''+
                      '<li>'+ list.lastName +'</li>'+
