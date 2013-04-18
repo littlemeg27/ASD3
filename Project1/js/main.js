@@ -64,6 +64,7 @@
                                     '<li>'+ game.phoneNumber +'</li>'+
                                     '<li>'+ game.numberOfPeople +'</li>'+
                                     '<li>'+ game.park +'</li>'
+                                    '<a>'
                                     ).appendTo("#gameList").listview();
                               }
                               $('#gameList').listview('refresh');
