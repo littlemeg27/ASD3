@@ -27,12 +27,12 @@
                         id = key;
                     }
                     
-                    var item = {};
-                    	item.lastName = [$("#lastName").val()];
-                    	item.phoneNumber = [$("#phoneNumber").val()];
-                    	item.numberOfPeople = [$("#numberOfPeople").val()];
-                    	item.park = [$("#park").val()];
-                    
+                    var item = {}; //Defining the array to save
+                    	item.lastName = [$("#lastName").val()]; //Storing lastName into the array
+                    	item.phoneNumber = [$("#phoneNumber").val()]; //Storing phoneNumber into the array 
+                    	item.numberOfPeople = [$("#numberOfPeople").val()]; //Storing numberOfPeople into the array
+                    	item.park = [$("#park").val()]; //Storing park into the array
+                    	//We have to save one item at a time to be able to save the data into the array.
                     
                     localStorage.setItem(id, JSON.stringify(item));
                     alert("The game was saved.");
