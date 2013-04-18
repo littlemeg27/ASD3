@@ -28,15 +28,22 @@
                     }
                     
                     var item = {}; //Defining the array to save
-                    	item.lastName = [$("#lastName").val()]; //Storing lastName into the array
-                    	item.phoneNumber = [$("#phoneNumber").val()]; //Storing phoneNumber into the array 
-                    	item.numberOfPeople = [$("#numberOfPeople").val()]; //Storing numberOfPeople into the array
-                    	item.park = [$("#park").val()]; //Storing park into the array
-                    	//We have to save one item at a time to be able to save the data into the array.
+                        item.lastName = [$("#lastName").val()]; //Storing lastName into the array
+                        item.phoneNumber = [$("#phoneNumber").val()]; //Storing phoneNumber into the array 
+                        item.numberOfPeople = [$("#numberOfPeople").val()]; //Storing numberOfPeople into the array
+                        item.park = [$("#park").val()]; //Storing park into the array
+                        //We have to save one item at a time to be able to save the data into the array.
                     
                     localStorage.setItem(id, JSON.stringify(item));
                     alert("The game was saved.");
               });
+              
+               var deleteData = $('#deleteData').on('click', function(key) 
+               {         
+                   localStorage.removeItem(key);
+                   localStorage.setItem("item", JSON.stringify(item));
+                   alert("Reservation was deleted");
+               });
                        
 
                         
@@ -64,7 +71,6 @@
                                     '<li>'+ game.phoneNumber +'</li>'+
                                     '<li>'+ game.numberOfPeople +'</li>'+
                                     '<li>'+ game.park +'</li>'
-                                    '<a>'
                                     ).appendTo("#gameList").listview();
                               }
                               $('#gameList').listview('refresh');
@@ -82,7 +88,7 @@
                 { //We are reading localStorage for item so that we can:
                     key = localStorage.key(i); //Grad the key for the item so that we can find the spot in local storage
                     var value = localStorage.getItem(key); //Once we find the key we pull the value from local storage
-                    var list = JSON.parse(value); //Parsing the json and set it to list				
+                    var list = JSON.parse(value); //Parsing the json and set it to list                
                     // Parsing-Takes a well-formed JSON string and returns the resulting JavaScript object.
 
                      $(''+
@@ -93,6 +99,8 @@
                      //"<a href='#' class='editItem'></a>""<a href='#' class='deleteItem'></a>"
                      //Trying to make the links for each contact
                      ).appendTo("#gameList").listview(); //Appending to the li
+                     "<a href='#' key='' class='editItem'></a>"
+
                 }
                 $('#gameList').listview('refresh');
               
@@ -138,7 +146,6 @@
                 });  
            
         }); 
-
 
 
 
