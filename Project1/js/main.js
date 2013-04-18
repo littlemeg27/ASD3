@@ -90,6 +90,8 @@
                      '<li>'+ list.phoneNumber +'</li>'+
                      '<li>'+ list.numberOfPeople +'</li>'+
                      '<li>'+ list.park +'</li>'
+                     //"<a href='#' class='editItem'></a>""<a href='#' class='deleteItem'></a>"
+                     //Trying to make the links for each contact
                      ).appendTo("#gameList").listview(); //Appending to the li
                 }
                 $('#gameList').listview('refresh');
