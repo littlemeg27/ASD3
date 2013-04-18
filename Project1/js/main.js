@@ -27,12 +27,12 @@
                         id = key;
                     }
                     
-                    {
-                      lastName        : $("#lastName").val(),
-                      phoneNumber     : $("#phoneNumber").val(),
-                      numberOfPeople  : $("#numberOfPeople").val(),
-                      park            : $("#park").val()
-                    });
+                    var item = {};
+                    	item.lastName = [$("#lastName").val()];
+                    	item.phoneNumber = [$("#phoneNumber").val()];
+                    	item.numberOfPeople = [$("#numberOfPeople").val()];
+                    	item.park = [$("#park").val()];
+                    
                     
                     localStorage.setItem(id, JSON.stringify(item));
                     alert("The game was saved.");
@@ -79,7 +79,7 @@
                 
                 for(var i=0, j=localStorage.length; i<j; i++) //for loop to read the whole json
                 {
-                    var key = localStorage.key(i);
+                    key = localStorage.key(i);
                     var value = localStorage.getItem(key);
                     var list = JSON.parse(value);
 
@@ -134,7 +134,6 @@
                 });  
            
         }); 
-
 
 
 
