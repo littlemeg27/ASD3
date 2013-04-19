@@ -50,9 +50,9 @@
         
         $('#dataPage').on('pageinit', function(item, data, key)
         {
-            var foo = 0;
-            if(foo == 1)
+            if(localStorage === 0)
             {
+            alert("Showing pre stored games");
             $("#gameList").empty();
         
             $.ajax({    
@@ -61,7 +61,7 @@
                        dataType: 'json', //Getting JSON data, located in data.json   
                        success: function(data)
                        {  
-                              for(var i=0, j=localStorage.length; i<j; i++)//for loop to read the whole json
+                              for(var i=0, j=data.json.length; i<j; i++)//for loop to read the whole json
                               {
                                     var game = data.json[i];
                                     
@@ -99,36 +99,35 @@
                      ).appendTo("#gameList").listview(); //Appending to the li
                      //"<a href='#' key='' class='editItem'></a>"-Didnt work
                      //$('<a href="#" id="editItem" </a>').appendTo('#gamelist'); -Changed the li its being appended to didnt show up
-                     //$('<a href="#" id="editItem"</a>').appendTo('#buttons'); -Appending to a different li but it didnt show up.
+                     //$('<a href="#" id="editItem"</a>').appendTo('#buttons'); //-Appending to a different li but it didnt show up.
                 }
                 $('#gameList').listview('refresh');
             }
             
              $('#deleteItem').on('click', function() 
              {  
-	               //Grab item with the key
-	               localStorage.removeItem(key);
-	               //Delete the item in localStorage
-	               alert("Game was deleted");
+                   //Grab item with the key
+                   localStorage.removeItem(key);
+                   //Delete the item in localStorage
+                   alert("Game was deleted");
              });
              
             
              $('#editItem').on('click', function() 
              {   
-	               var newKey = $(this).attr("key"); //Grab item with the key
-	               //Stringify the contents-maybe not
-	               var newValue = localStorage.getItem($(this).attr("key")); //Pull them up in the form
-	               var item = JSON.parse(newValue); //Parse so you can read
-	               
-	               var item = {}; //Defining the array to save
-	               item.lastName = [$("#lastName").val()]; //Storing lastName into the array
-	               item.phoneNumber = [$("#phoneNumber").val()]; //Storing phoneNumber into the array 
-	               item.numberOfPeople = [$("#numberOfPeople").val()]; //Storing numberOfPeople into the array
-	               item.park = [$("#park").val()]; //Storing park into the array
-	               //We have to save one item at a time to be able to save the data into the array.
-	               
-	               localStorage.removeItem(newKey); //Save over the old key 
-	               alert("Game was edited!");
+                   var newKey = $(this).attr("key"); //Grab item with the key
+                   //Stringify the contents-maybe not
+                   var newValue = localStorage.getItem($(this).attr("key")); //Pull them up in the form
+                   var item = JSON.parse(newValue); //Parse so you can read
+                   
+                   item.lastName = [$("#lastName").val()]; //Storing lastName into the array
+                   item.phoneNumber = [$("#phoneNumber").val()]; //Storing phoneNumber into the array
+                   item.numberOfPeople = [$("#numberOfPeople").val()]; //Storing numberOfPeople into the array
+                   item.park = [$("#park").val()]; //Storing park into the array
+                   //We have to save one item at a time to be able to save the data into the array.
+                   
+                   localStorage.removeItem(newKey); //Save over the old key 
+                   alert("Game was edited!");
              });
             
             
@@ -172,13 +171,3 @@
                 });  
            
         }); 
-
-
-
-
-
-
-
-
-
-
