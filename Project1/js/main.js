@@ -80,7 +80,7 @@
             
             else
             {
-                alert("im in the else"); 
+                alert("Showing stored games"); 
                 
                 for(var i=0, j=localStorage.length; i<j; i++) //for loop to read the whole json
                 { //We are reading localStorage for item so that we can:
@@ -94,15 +94,22 @@
                      '<li>'+ list.phoneNumber +'</li>'+
                      '<li>'+ list.numberOfPeople +'</li>'+
                      '<li>'+ list.park +'</li>'
-                     //"<a href='#' class='editItem'></a>""<a href='#' class='deleteItem'></a>"
+                     //"<a href='#' class='editItem'></a>""<a href='#' class='deleteItem'></a>"-Doesnt like
                      //Trying to make the links for each contact
                      ).appendTo("#gameList").listview(); //Appending to the li
-                     "<a href='#' key='' class='editItem'></a>"
-
+                     //"<a href='#' key='' class='editItem'></a>"-Didnt work
+                     //$('<a href="#" id="editItem" </a>').appendTo('#gamelist'); -Changed the li its being appended to didnt show up
+                     //$('<a href="#" id="editItem"</a>').appendTo('#buttons'); -Appending to a different li but it didnt show up.
                 }
                 $('#gameList').listview('refresh');
-              
             }
+            
+             $('#deleteData').on('click', function(key) 
+             {   
+               localStorage.clear(key);      
+               alert("All the games were deleted");
+             });
+            
             
          });
          
