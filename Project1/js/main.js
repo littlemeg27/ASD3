@@ -50,6 +50,8 @@
         
         $('#dataPage').on('pageinit', function(item, data, key)
         {
+            //var foo = 0; -If you use this to control the if else then this works for the json.
+            //if(foo == 0) -Please use to test. Not sure why its not showing pre saved games
             if(localStorage === 0)
             {
             alert("Showing pre stored games");
@@ -171,3 +173,12 @@
                 });  
            
         }); 
+
+
+
+
+
+
+
+
+
