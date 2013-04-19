@@ -112,7 +112,7 @@
                 
                 for(var i=0, j=localStorage.length; i<j; i++) //for loop to read the whole json
                 { //We are reading localStorage for item so that we can:
-                    key = localStorage.key(i); //Grab the key for the item so that we can find the spot in local storage
+                    var key = localStorage.key(i); //Grab the key for the item so that we can find the spot in local storage
                     var value = localStorage.getItem(key); //Once we find the key we pull the value from local storage
                     var list = JSON.parse(value); //Parsing the json and set it to list                
                     //Parsing-Takes a well-formed JSON string and returns the resulting JavaScript object.
@@ -128,10 +128,10 @@
                      //"<a href='#' key='' class='editItem'></a>"-Didnt work
                      //$('<a href="#" id="editItem" </a>').appendTo('#gamelist'); -Changed the li its being appended to didnt show up
                      //$('<a href="#" id="editItem"</a>').appendTo('#buttons'); //-Appending to a different li but it didnt show up.
-                }
-                $('#gameList').listview('refresh');
-            }
-            
+                     
+                     var id = '#edititem' + '_' + key
+                     var id = '#deleteitem' + '_' + key
+                     
              $('#deleteItem').on('click', function() 
              {  
                    //Grab item with the key
@@ -157,6 +157,11 @@
                    localStorage.removeItem(newKey); //Save over the old key 
                    alert("Game was edited!");
              });
+                }
+                $('#gameList').listview('refresh');
+            }
+            
+
             
             
          });
