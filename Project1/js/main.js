@@ -38,11 +38,10 @@
                     alert("The game was saved.");
               });
               
-               var deleteData = $('#deleteData').on('click', function(key) 
-               {         
-                   localStorage.removeItem(key);
-                   localStorage.setItem("item", JSON.stringify(item));
-                   alert("Reservation was deleted");
+               $('#deleteData').on('click', function(key) 
+               {   
+                   localStorage.clear(key);      
+                   alert("All the games were deleted");
                });
                        
 
@@ -82,14 +81,13 @@
             else
             {
                 alert("im in the else"); 
-                console.log("1", item);
                 
                 for(var i=0, j=localStorage.length; i<j; i++) //for loop to read the whole json
                 { //We are reading localStorage for item so that we can:
                     key = localStorage.key(i); //Grad the key for the item so that we can find the spot in local storage
                     var value = localStorage.getItem(key); //Once we find the key we pull the value from local storage
                     var list = JSON.parse(value); //Parsing the json and set it to list                
-                    // Parsing-Takes a well-formed JSON string and returns the resulting JavaScript object.
+                    //Parsing-Takes a well-formed JSON string and returns the resulting JavaScript object.
 
                      $(''+
                      '<li>'+ list.lastName +'</li>'+
