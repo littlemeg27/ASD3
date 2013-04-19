@@ -127,6 +127,9 @@
                      var editID = '#edititem' + '_' + key
                      var deleteID = '#deleteitem' + '_' + key
                      
+                     $button = $('', { 'id': 'edititem', 'data-role': 'button' });
+                     $button = $('', { 'id': 'edititem', 'data-role': 'button' });
+                     
              $('deleteID').on('click', function() 
              {  
                    $(this).attr('deleteID')
@@ -155,6 +158,7 @@
                    localStorage.removeItem(newKey); //Save over the old key 
                    alert("Game was edited!");
              });
+             
                 }
                 $('#gameList').listview('refresh');
             }
