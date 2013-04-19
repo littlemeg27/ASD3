@@ -122,18 +122,16 @@
                      '<li>'+ list.phoneNumber +'</li>'+
                      '<li>'+ list.numberOfPeople +'</li>'+
                      '<li>'+ list.park +'</li>'
-                     //"<a href='#' class='editItem'></a>""<a href='#' class='deleteItem'></a>"-Doesnt like
-                     //Trying to make the links for each contact
                      ).appendTo("#gameList").listview(); //Appending to the li
-                     //"<a href='#' key='' class='editItem'></a>"-Didnt work
-                     //$('<a href="#" id="editItem" </a>').appendTo('#gamelist'); -Changed the li its being appended to didnt show up
-                     //$('<a href="#" id="editItem"</a>').appendTo('#buttons'); //-Appending to a different li but it didnt show up.
                      
-                     var id = '#edititem' + '_' + key
-                     var id = '#deleteitem' + '_' + key
+                     var editID = '#edititem' + '_' + key
+                     var deleteID = '#deleteitem' + '_' + key
                      
-             $('#deleteItem').on('click', function() 
+             $('deleteID').on('click', function() 
              {  
+                   $(this).attr('deleteID')
+                   var myId = $(this).attr('deleteID');
+                   var keyToEdit = myId.split('_')[1]
                    //Grab item with the key
                    localStorage.removeItem(key);
                    //Delete the item in localStorage
@@ -141,7 +139,7 @@
              });
              
             
-             $('#editItem').on('click', function() 
+             $('editID').on('click', function() 
              {   
                    var newKey = $(this).attr("key"); //Grab item with the key
                    //Stringify the contents-maybe not
