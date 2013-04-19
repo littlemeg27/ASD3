@@ -130,8 +130,9 @@
                      $editButton = $('<a>', { 'id': editID, 'data-role': 'Edit Button' });
                      $deleteButton = $('<a>', { 'id': deleteID, 'data-role': 'Delete button' });
                      
-                     $editButton.appendTo('#buttons');
-                     $deleteButton.appendTo('#buttons');
+                     
+                     $editButton.appendTo('#buttons' + 'i');
+                     $deleteButton.appendTo('#buttons' + 'i');
                      
              $('deleteID').on('click', function() 
              {  
