@@ -108,7 +108,7 @@
             
             else
             {
-                alert("Showing stored games"); 
+                alert("Showing stored games"); //When i run this for some reason i have to refresh to make the new game appear
                 
                 for(var i=0, j=localStorage.length; i<j; i++) //for loop to read the whole json
                 { //We are reading localStorage for item so that we can:
@@ -124,21 +124,21 @@
                      '<li>'+ list.park +'</li>'
                      ).appendTo("#gameList").listview(); //Appending to the li
                      
-                     var editID = 'edititem' + '_' + key;
-                     var deleteID = 'deleteitem' + '_' + key;
+                     var editID = 'edititem' + '_' + key; //Grabing each key for the editbutton
+                     var deleteID = 'deleteitem' + '_' + key; //Grabing each key for the deletebutton
                      
-                     $editButton = $('<a>', { 'id': editID, 'data-role': 'Edit Button' });
-                     $deleteButton = $('<a>', { 'id': deleteID, 'data-role': 'Delete button' });
+                     $editButton = $('<a>', { 'id': editID, 'data-role': 'Edit Button' }); //Creating each button for the edit
+                     $deleteButton = $('<a>', { 'id': deleteID, 'data-role': 'Delete button' }); //Creating each button for the delete
                      
                      
-                     $editButton.appendTo('#gameList');
-                     $deleteButton.appendTo('#gameList');
+                     $editButton.appendTo('#gameList'); //Appending the edit button to the gamelist 
+                     $deleteButton.appendTo('#gameList'); //Appending the delete button to the gamelist
                      
              $('deleteID').on('click', function() 
              {  
                    $(this).attr('deleteID')
                    var myId = $(this).attr('deleteID');
-                   var keyToEdit = myId.split('_')[1]
+                   var keyToEdit = myId.split('_')[1] //Taking off the key 
                    //Grab item with the key
                    localStorage.removeItem(key);
                    //Delete the item in localStorage
