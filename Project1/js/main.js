@@ -84,7 +84,7 @@
                 
                 for(var i=0, j=localStorage.length; i<j; i++) //for loop to read the whole json
                 { //We are reading localStorage for item so that we can:
-                    key = localStorage.key(i); //Grad the key for the item so that we can find the spot in local storage
+                    key = localStorage.key(i); //Grab the key for the item so that we can find the spot in local storage
                     var value = localStorage.getItem(key); //Once we find the key we pull the value from local storage
                     var list = JSON.parse(value); //Parsing the json and set it to list                
                     //Parsing-Takes a well-formed JSON string and returns the resulting JavaScript object.
@@ -106,18 +106,29 @@
             
              $('#deleteItem').on('click', function() 
              {  
-               //Grab item with the key
-               //Delete the item in localStorage
-               alert("Game was deleted");
+	               //Grab item with the key
+	               localStorage.removeItem(key);
+	               //Delete the item in localStorage
+	               alert("Game was deleted");
              });
              
+            
              $('#editItem').on('click', function() 
              {   
-               //Grab item with the key
-               //Stringify the contents
-               //Pull them up in the form
-               //Save over the old key 
-               alert("Game was edited!");
+	               var newKey = $(this).attr("key"); //Grab item with the key
+	               //Stringify the contents-maybe not
+	               var newValue = localStorage.getItem($(this).attr("key")); //Pull them up in the form
+	               var item = JSON.parse(newValue); //Parse so you can read
+	               
+	               var item = {}; //Defining the array to save
+	               item.lastName = [$("#lastName").val()]; //Storing lastName into the array
+	               item.phoneNumber = [$("#phoneNumber").val()]; //Storing phoneNumber into the array 
+	               item.numberOfPeople = [$("#numberOfPeople").val()]; //Storing numberOfPeople into the array
+	               item.park = [$("#park").val()]; //Storing park into the array
+	               //We have to save one item at a time to be able to save the data into the array.
+	               
+	               localStorage.removeItem(newKey); //Save over the old key 
+	               alert("Game was edited!");
              });
             
             
