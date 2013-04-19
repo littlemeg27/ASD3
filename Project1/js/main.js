@@ -11,8 +11,7 @@
         
         $('#addItem').on('pageinit', function()
         {
-        
-              $('#saveData').on('click', function()
+              var storeData = $('#saveData').on('click', function()
               {
                   var key;
                   var id;
@@ -38,14 +37,41 @@
                     alert("The game was saved.");
               });
               
+              var myForm = $('#waitForm');
+              var errorFormLink = $('#errorFormLink');
+            
+	            myForm.validate(
+	            {
+	                    invalidHandler: function(form, validator) 
+	                    {
+	                        errorFormLink.click();
+	                        var html = '';
+	                        
+	                        for(var key in validator.submitted)
+	                        {
+	                            var label = $('[for^="'+ key +'"]');
+	                            var legend = label.closest('fieldset').find('.ui-controlgroup-label');
+	                            var fieldName = legend.length ? legend.text() : label.text();
+	                            html += '<li>'+fieldName+'</li>';
+	                        }
+	                        
+	                        $("#errorFormPage ul").html(html);
+	                    },
+	                    
+	                    submitHandler: function() 
+	                    {
+	                        var data = myForm.serializeArray();
+	                        storeData(data);
+	                    }
+	            });
+
+              
                $('#deleteData').on('click', function(key) 
                {   
                    localStorage.clear(key);      
                    alert("All the games were deleted");
                });
-                       
-
-                        
+                                       
         });
         
         $('#dataPage').on('pageinit', function(item, data, key)
