@@ -78,7 +78,7 @@
         {
             //var foo = 0; //-If you use this to control the if else then this works for the json.
             //if(foo == 0) //-Please use to test. Not sure why its not showing pre saved games
-            if(localStorage === 0)
+            if(localStorage.length === 0)
             {
             alert("Showing pre stored games");
             $("#gameList").empty();
@@ -131,8 +131,8 @@
                      $deleteButton = $('<a>', { 'id': deleteID, 'data-role': 'Delete button' });
                      
                      
-                     $editButton.appendTo('#buttons' + 'i');
-                     $deleteButton.appendTo('#buttons' + 'i');
+                     $editButton.appendTo('#gameList');
+                     $deleteButton.appendTo('#gameList');
                      
              $('deleteID').on('click', function() 
              {  
