@@ -124,11 +124,11 @@
                      '<li>'+ list.park +'</li>'
                      ).appendTo("#gameList").listview(); //Appending to the li
                      
-                     var editID = '#edititem' + '_' + key
-                     var deleteID = '#deleteitem' + '_' + key
+                     var editID = 'edititem' + '_' + key;
+                     var deleteID = 'deleteitem' + '_' + key;
                      
-                     $button = $('<a>', { 'id': 'editID', 'data-role': 'button' });
-                     $button = $('<a>', { 'id': 'deleteID', 'data-role': 'button' });
+                     $button = $('<a>', { 'id': editID, 'data-role': 'Edit Button' });
+                     $button = $('<a>', { 'id': deleteID, 'data-role': 'Delete button' });
                      
              $('deleteID').on('click', function() 
              {  
