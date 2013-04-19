@@ -127,8 +127,11 @@
                      var editID = 'edititem' + '_' + key;
                      var deleteID = 'deleteitem' + '_' + key;
                      
-                     $button = $('<a>', { 'id': editID, 'data-role': 'Edit Button' });
-                     $button = $('<a>', { 'id': deleteID, 'data-role': 'Delete button' });
+                     $editButton = $('<a>', { 'id': editID, 'data-role': 'Edit Button' });
+                     $deleteButton = $('<a>', { 'id': deleteID, 'data-role': 'Delete button' });
+                     
+                     $editButton.appendTo('#buttons');
+                     $deleteButton.appendTo('#buttons');
                      
              $('deleteID').on('click', function() 
              {  
