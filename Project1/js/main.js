@@ -104,10 +104,20 @@
                 $('#gameList').listview('refresh');
             }
             
-             $('#deleteData').on('click', function(key) 
+             $('#deleteItem').on('click', function() 
+             {  
+               //Grab item with the key
+               //Delete the item in localStorage
+               alert("Game was deleted");
+             });
+             
+             $('#editItem').on('click', function() 
              {   
-               localStorage.clear(key);      
-               alert("All the games were deleted");
+               //Grab item with the key
+               //Stringify the contents
+               //Pull them up in the form
+               //Save over the old key 
+               alert("Game was edited!");
              });
             
             
