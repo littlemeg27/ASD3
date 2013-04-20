@@ -134,7 +134,15 @@
                      $editButton.appendTo('#gameList'); //Appending the edit button to the gamelist 
                      $deleteButton.appendTo('#gameList'); //Appending the delete button to the gamelist
                      
-             $('deleteID').on('click', function() 
+                     clickDelete();
+                     clickEdit();
+                          
+                }
+                $('#gameList').listview('refresh');
+            }
+            
+            
+             var clickDelete = delete$('deleteID').on('click', function() 
              {  
                    $(this).attr('deleteID')
                    var myId = $(this).attr('deleteID');
@@ -146,7 +154,7 @@
              });
              
             
-             $('editID').on('click', function() 
+             var clickEdit = $('editID').on('click', function() 
              {   
                    var newKey = $(this).attr("key"); //Grab item with the key
                    //Stringify the contents-maybe not
@@ -162,11 +170,7 @@
                    localStorage.removeItem(newKey); //Save over the old key 
                    alert("Game was edited!");
              });
-             
-                }
-                $('#gameList').listview('refresh');
-            }
-            
+
 
             
             
