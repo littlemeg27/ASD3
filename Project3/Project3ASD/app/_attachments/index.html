@@ -1,0 +1,190 @@
+<!DOCTYPE html> 
+<!--Brenna Pavlinchak-->
+<!--ASD 1304-->
+<!--Project 1-->
+
+<!--HTMLTAG-->
+
+	<html>
+
+		<head>
+			<meta charset= "utf-8"/>
+			<meta name= "description" content= "resturant, waits"/>
+			<meta name= "keywords" content= "resturant, wait"/>
+			<meta name= "robots" content= "index, flow"/>
+			<meta name= "HandheldFriendly" content= "True">
+			<meta name= "MobileOptimized" content= "320" />
+			<meta name= "viewport" 	 content="width=device-width, initial-scale=1.0"/>
+			<title>Disc Golf</title>
+
+		<!--css files here-->
+			<link rel="stylesheet" href="jquery.mobile-1.3.0.min.css" type="text/css"/>
+			<link rel="stylesheet" href="style.css" type="text/css"/>
+
+		<!--Modernizr goes here-->
+			<script src="modernizr.custom.64724.js"></script>		
+		</head>
+
+		<body>
+
+				<div data-role="page" id="home">
+
+					<header data-role="header" data-position="fixed" data-add-back-btn="true">
+						<h1>Disc Golf</h1>
+					</header>
+
+					<section>
+
+					<ul data-role="listview" data-inset="true">
+						<li>
+							<a href="#addItem">
+							<h3>Add a Game!</h3>
+							</a>
+						</li>
+						<li>
+							<a href="#dataPage">
+							<h3>Data Page</h3>
+							</a>
+						</li>
+						<li>
+							<a href="#ajaxPage">
+							<h3>Ajax Page</h3>
+							</a>
+						</li>
+					</ul>
+
+					</section>
+
+				</div>
+
+				<div data-role="page" id="addItem">
+
+					<header data-role="header" data-position="fixed">
+						<h1>Disc Golf</h1>
+					</header>
+
+					<section>
+
+					<form action="#" id="waitForm"><!--form open-->
+
+						<div data-role="fieldcontain"><!--lastName open-->
+
+							<label for="lastName">Last Name  *Required</label>
+							<input type="text" name="lastName" id="lastName" placeholder="Murphy" class="required"/>
+
+						</div><!--lastName closed-->
+
+
+						<div data-role="fieldcontain"><!--phoneNumber open-->
+
+							<label for="phoneNumber">Phone Number  *Required</label>
+							<input type="text" name="phoneNumber" id="phoneNumber" placeholder="899-596-8015" class="required phoneUS"/>
+
+						</div><!--phoneNumber closed-->
+
+
+						<div data-role="fieldcontain"><!--select open-->
+						
+							<label for="park">Which park are you going to?</label>
+
+								<select name="park" id="park" data-native-menu="false">
+										<option value="#">Choose a Park</option>
+										<option value="Charlotte's Web ">Charlotte`s Web</option>
+										<option value="Hornets Nest">Hornets Nest</option>
+										<option value="Mint Hill">Mint Hill</option>
+										<option value="Sugaw Creek">Sugaw Creek</option>
+										<option value="Veterans Park">Veterans Park</option>
+										<option value="Winthrop University">Winthrop University</option>
+									</select>
+
+						</div><!--select closed-->
+
+						<div data-role="fieldcontain"><!--select open-->
+
+							<label for="numberOfPeople">How many in your Party?</label>
+
+									<select name="numberOfPeople" id="numberOfPeople" data-native-menu="false">
+										<option value="#">Choose an Amount</option>
+										<option value="Two">Two</option>
+										<option value="Three">Three</option>
+										<option value="Four">Four</option>
+										<option value="Five">Five</option>
+										<option value="Six">Six</option>
+									</select>
+
+						</div><!--select closed-->
+
+						<div data-role="fieldcontain"><!--form buttons open-->
+
+							<button id="saveData">Make Reservation</button>
+							<button id="deleteData">Delete all Reservations</button>
+							<input type="reset" id="reset" value="Reset"/>
+
+						</div><!--form buttons closed-->
+
+						<a href="#errorFormPage" id="errorFormLink" data-rel="dialog" data-transition="pop">Errors!</a>
+
+				</form><!--form closed-->		
+
+					</section>
+
+				</div>
+
+				<!--errors pop up page-->
+					<div data-role="dialog" id="errorFormPage" data-theme="a"><!--page open-->
+
+						<div data-role="header" data-position="fixed"><!--header open-->
+
+							<h1>Missing Fields!</h1>
+
+						</div><!--header closed-->
+
+						<div data-role="content"><!--content open-->
+
+							<ul>
+								<li>Test</li>
+							</ul>
+
+						</div>
+
+					</div><!--content closed-->
+				<!--End errors pop up page-->
+
+
+				<div data-role="page" id="dataPage">
+
+					<header data-role="header" data-position="fixed" data-add-back-btn="true">
+						<h1>Disc Golf</h1>
+					</header>
+
+					<section>
+							<ul id="gameList" data-role="listview">
+							</ul>
+					</section>
+
+				</div>
+				
+				<div data-role="page" id="ajaxPage">
+
+					<header data-role="header" data-position="fixed" data-add-back-btn="true">
+						<h1>Disc Golf</h1>
+					</header>
+
+					<section>
+							<ul id="ajaxList" data-role="listview">
+							</ul>
+					</section>
+
+				</div>
+
+
+		 <!--Javascript here-->
+			<script type="text/javascript" src="jquery-1.8.2.min.js"></script>
+			<script type="text/javascript" src="jquery.mobile-1.2.0.min.js"></script>
+			<script type="text/javascript" src="jquery.validate.min.js"></script>
+			<script type="text/javascript" src="main.js"></script>
+			<script type="text/javascript" src="json.js"></script>
+
+		</body>
+
+	</html>
