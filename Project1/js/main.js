@@ -121,10 +121,12 @@
                      '<li>'+ list.lastName +'</li>'+
                      '<li>'+ list.phoneNumber +'</li>'+
                      '<li>'+ list.numberOfPeople +'</li>'+
-                     '<li>'+ list.park +'</li>'
+                     '<li>'+ list.park +'</li>' +
+                     '<button id="editItem" data-key="key">' + Edit + '</button>' +
+                     '<button id="deleteItem" data-key="key">' + Delete + '</button>' 
                      ).appendTo("#gameList").listview(); //Appending to the li  
                      
-                     <button id="button" data-key="Button1"></button>                   
+                                     
                      
                     //Grab key and select it so I can set buttons to it.                          
                 }
@@ -134,7 +136,7 @@
             
             
             
-             $('deleteID').on('click', function() 
+             $('deleteItem').on('click', function() 
              {  
              	   localStorage.removeItem($(this).attr('key'));
                    //Grab item with the key
@@ -143,7 +145,7 @@
              });
              
             
-             $('editID').on('click', function() 
+             $('editItem').on('click', function() 
              {   
              	   key = $(this).data('key');
              	   storeData(key);
