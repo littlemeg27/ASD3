@@ -124,19 +124,24 @@
                      '<li>'+ list.park +'</li>'
                      ).appendTo("#gameList").listview(); //Appending to the li                     
                      
-                     $editButton.appendTo('#gameList'); //Appending the edit button to the gamelist 
-                     $deleteButton.appendTo('#gameList'); //Appending the delete button to the gamelist
+                    //Grab key and select it so I can set buttons to it.
+                    
+                    // $editButton.appendTo('#gameList'); //Appending the edit button to the gamelist 
+                    // $deleteButton.appendTo('#gameList'); //Appending the delete button to the gamelist
                      
-                     clickDelete(); //Calls  
-                     clickEdit();
+                   //  clickDelete(); //Calls  
+                   //  clickEdit();
                           
                 }
                 $('#gameList').listview('refresh');
             }
             
             
+            
+            
              var clickDelete = $('deleteID').on('click', function() 
              {  
+             	   localStorage.removeItem($(this).attr('key'));
                    //Grab item with the key
                    localStorage.removeItem(key);
                    //Delete the item in localStorage
