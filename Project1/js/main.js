@@ -143,7 +143,6 @@
              {  
              	   localStorage.removeItem($(this).attr('key'));
                    //Grab item with the key
-                   localStorage.removeItem(key);
                    //Delete the item in localStorage
                    alert("Game was deleted");
              });
