@@ -122,8 +122,8 @@
                      '<li>'+ list.phoneNumber +'</li>'+
                      '<li>'+ list.numberOfPeople +'</li>'+
                      '<li>'+ list.park +'</li>' +
-                     '<button id="editItem" data-key="key">' + Edit + '</button>' +
-                     '<button id="deleteItem" data-key="key">' + Delete + '</button>' 
+                     '<button id="editItem" data-key="key">' + key + ' Edit </button>' +
+                     '<button id="deleteItem" data-key="key">' + key + ' Delete </button>' 
                      ).appendTo("#gameList").listview(); //Appending to the li  
                      
                                      
