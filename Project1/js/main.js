@@ -122,16 +122,11 @@
                      '<li>'+ list.phoneNumber +'</li>'+
                      '<li>'+ list.numberOfPeople +'</li>'+
                      '<li>'+ list.park +'</li>'
-                     ).appendTo("#gameList").listview(); //Appending to the li                     
+                     ).appendTo("#gameList").listview(); //Appending to the li  
                      
-                    //Grab key and select it so I can set buttons to it.
-                    
-                    // $editButton.appendTo('#gameList'); //Appending the edit button to the gamelist 
-                    // $deleteButton.appendTo('#gameList'); //Appending the delete button to the gamelist
+                     <button id="button" data-key="1234"></button>                   
                      
-                   //  clickDelete(); //Calls  
-                   //  clickEdit();
-                          
+                    //Grab key and select it so I can set buttons to it.                          
                 }
                 $('#gameList').listview('refresh');
             }
