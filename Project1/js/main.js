@@ -144,9 +144,6 @@
             
              var clickDelete = $('deleteID').on('click', function() 
              {  
-                   $(this).attr('deleteID')
-                   var myId = $(this).attr('deleteID');
-                   var keyToEdit = myId.split('_')[1] //Taking off the key 
                    //Grab item with the key
                    localStorage.removeItem(key);
                    //Delete the item in localStorage
