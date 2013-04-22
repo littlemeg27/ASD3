@@ -150,7 +150,8 @@
             
              $('editID').on('click', function() 
              {   
-             	   key = (this).data('key') //storeData(key)
+             	   key = (this).data('key');
+             	   storeData(key);
                    var newKey = $(this).attr("key"); //Grab item with the key
                    //Stringify the contents-maybe not
                    var newValue = localStorage.getItem($(this).attr("key")); //Pull them up in the form
