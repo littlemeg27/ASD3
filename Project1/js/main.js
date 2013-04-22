@@ -150,7 +150,7 @@
             
              $('editID').on('click', function() 
              {   
-             	   key = (this).data('key');
+             	   key = $(this).data('key');
              	   storeData(key);
                    var newKey = $(this).attr("key"); //Grab item with the key
                    //Stringify the contents-maybe not
