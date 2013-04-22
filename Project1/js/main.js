@@ -122,14 +122,7 @@
                      '<li>'+ list.phoneNumber +'</li>'+
                      '<li>'+ list.numberOfPeople +'</li>'+
                      '<li>'+ list.park +'</li>'
-                     ).appendTo("#gameList").listview(); //Appending to the li
-                     
-                     var editID = 'edititem' + '_' + key; //Grabing each key for the editbutton
-                     var deleteID = 'deleteitem' + '_' + key; //Grabing each key for the deletebutton
-                     
-                     $editButton = $('<a>', { 'id': editID, 'data-role': 'Edit Button' }); //Creating each button for the edit
-                     $deleteButton = $('<a>', { 'id': deleteID, 'data-role': 'Delete button' }); //Creating each button for the delete
-                     
+                     ).appendTo("#gameList").listview(); //Appending to the li                     
                      
                      $editButton.appendTo('#gameList'); //Appending the edit button to the gamelist 
                      $deleteButton.appendTo('#gameList'); //Appending the delete button to the gamelist
