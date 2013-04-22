@@ -124,7 +124,7 @@
                      '<li>'+ list.park +'</li>'
                      ).appendTo("#gameList").listview(); //Appending to the li  
                      
-                     <button id="button" data-key="1234"></button>                   
+                     <button id="button" data-key="Button1"></button>                   
                      
                     //Grab key and select it so I can set buttons to it.                          
                 }
