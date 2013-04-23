@@ -11,7 +11,7 @@
         
         $('#addItem').on('pageinit', function()
         {
-              var storeData = $('#saveData').on('click', function()
+              $('#storeData').on('click', function()
               {
                   var key;
                   var id;
@@ -74,7 +74,7 @@
                                        
         });
         
-        $('#dataPage').on('pageinit', function(item, data, key)
+        $('#dataPage').on('pageinit', function(item, data, key, storeData)
         {
             //var foo = 0; //-If you use this to control the if else then this works for the json.
             //if(foo == 0) //-Please use to test. Not sure why its not showing pre saved games
@@ -130,7 +130,7 @@
                 $('#gameList').listview('refresh');
             }
             
-            $('deleteItem').on('click', function() 
+            $('#deleteItem').on('click', function() 
              {  
              	   localStorage.removeItem($(this).attr('key'));
                    //Grab item with the key
@@ -138,10 +138,8 @@
                    alert("Game was deleted");
              });
              
-            console.log(editItem);
-             $('editItem').on('click', function() 
+             $('#editItem').on('click', function(storeData) 
              {   
-             console.log(editItem);
              	   key = $(this).data('key');
              	   storeData(key);
                    var newKey = $(this).attr("key"); //Grab item with the key
