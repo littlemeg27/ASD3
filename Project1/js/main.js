@@ -9,34 +9,11 @@
                         
         });
         
+        
+        
         $('#addItem').on('pageinit', function()
         {
-              $('#storeData').on('click', function()
-              {
-                  var key;
-                  var id;
-                  
-                    if(!key)
-                    {
-                       id = Math.floor(Math.random()*1000001);    
-                    }
-                    
-                    else
-                    {
-                        id = key;
-                    }
-                    
-                    var item = {}; //Defining the array to save
-                        item.lastName = [$("#lastName").val()]; //Storing lastName into the array
-                        item.phoneNumber = [$("#phoneNumber").val()]; //Storing phoneNumber into the array 
-                        item.numberOfPeople = [$("#numberOfPeople").val()]; //Storing numberOfPeople into the array
-                        item.park = [$("#park").val()]; //Storing park into the array
-                        //We have to save one item at a time to be able to save the data into the array.
-                    
-                    localStorage.setItem(id, JSON.stringify(item));
-                    alert("The game was saved.");
-              });
-              
+                            
               var myForm = $('#waitForm');
               var errorFormLink = $('#errorFormLink');
             
@@ -64,6 +41,33 @@
 	                        storeData(data);
 	                    }
 	            });
+	            
+	          var storeData = function()
+              {
+                  var key;
+                  var id;
+                  
+                    if(!key)
+                    {
+                       id = Math.floor(Math.random()*1000001);    
+                    }
+                    
+                    else
+                    {
+                        id = key;
+                    }
+                    
+                    var item = {}; //Defining the array to save
+                        item.lastName = [$("#lastName").val()]; //Storing lastName into the array
+                        item.phoneNumber = [$("#phoneNumber").val()]; //Storing phoneNumber into the array 
+                        item.numberOfPeople = [$("#numberOfPeople").val()]; //Storing numberOfPeople into the array
+                        item.park = [$("#park").val()]; //Storing park into the array
+                        //We have to save one item at a time to be able to save the data into the array.
+                    
+                    localStorage.setItem(id, JSON.stringify(item));
+                    alert("The game was saved.");
+              };
+
 
               
                $('#deleteData').on('click', function(key) 
@@ -138,7 +142,7 @@
                    alert("Game was deleted");
              });
              
-             $('#editItem').on('click', function(storeData) 
+             $('#editItem').on('click', function() 
              {   
              	   key = $(this).data('key');
              	   storeData(key);
