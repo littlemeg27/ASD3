@@ -14,6 +14,33 @@
         $('#addItem').on('pageinit', function()
         {
                             
+              $('#storeData').on('click', function() 
+              {
+                  var key;
+                  var id;
+                  
+                    if(!key)
+                    {
+                       id = Math.floor(Math.random()*1000001);    
+                    }
+                    
+                    else
+                    {
+                        id = key;
+                    }
+                    
+                    var item = {}; //Defining the array to save
+                        item.lastName = [$("#lastName").val()]; //Storing lastName into the array
+                        item.phoneNumber = [$("#phoneNumber").val()]; //Storing phoneNumber into the array 
+                        item.numberOfPeople = [$("#numberOfPeople").val()]; //Storing numberOfPeople into the array
+                        item.park = [$("#park").val()]; //Storing park into the array
+                        //We have to save one item at a time to be able to save the data into the array.
+                    
+                    localStorage.setItem(id, JSON.stringify(item));
+                    alert("The game was saved.");
+              });
+
+
               var myForm = $('#waitForm');
               var errorFormLink = $('#errorFormLink');
             
@@ -50,33 +77,6 @@
                });
                        
         });
-        
-        	  var storeData = function(data) 
-              {
-                  var key;
-                  var id;
-                  
-                    if(!key)
-                    {
-                       id = Math.floor(Math.random()*1000001);    
-                    }
-                    
-                    else
-                    {
-                        id = key;
-                    }
-                    
-                    var item = {}; //Defining the array to save
-                        item.lastName = [$("#lastName").val()]; //Storing lastName into the array
-                        item.phoneNumber = [$("#phoneNumber").val()]; //Storing phoneNumber into the array 
-                        item.numberOfPeople = [$("#numberOfPeople").val()]; //Storing numberOfPeople into the array
-                        item.park = [$("#park").val()]; //Storing park into the array
-                        //We have to save one item at a time to be able to save the data into the array.
-                    
-                    localStorage.setItem(id, JSON.stringify(item));
-                    alert("The game was saved.");
-              };
-
         
         $('#dataPage').on('pageinit', function(item, data, key, storeData)
         {
@@ -136,7 +136,7 @@
             
             $('#deleteItem').on('click', function() 
              {  
-             	   localStorage.removeItem($(this).data('key'));
+             	   localStorage.removeItem($(this).attr('key'));
                    //Grab item with the key
                    //Delete the item in localStorage
                    alert("Game was deleted");
@@ -150,10 +150,10 @@
                    var newValue = localStorage.getItem($(this).attr("key")); //Pull them up in the form
                    var item = JSON.parse(newValue); //Parse so you can read
                    
-                   $('#waitForm').val(item.lastName[1]); //Storing lastName back into the array
-                   $('#waitForm').val(item.phoneNumber[1]); //Storing phoneNumber back into the array
-                   $('#waitForm').val(item.numberOfPeople[1]); //Storing numberOfPeople back into the array
-                   $('#waitForm').val(item.park[1]); //Storing park back into the array
+                   $('#gameForm').val(item.lastName[1]); //Storing lastName back into the array
+                   $('#gameForm').val(item.phoneNumber[1]); //Storing phoneNumber back into the array
+                   $('#gameForm').val(item.numberOfPeople[1]); //Storing numberOfPeople back into the array
+                   $('#gameForm').val(item.park[1]); //Storing park back into the array
                    //We have to save one item at a time to be able to save the data into the array.
                    
                    localStorage.removeItem(newKey); //Save over the old key 
