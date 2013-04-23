@@ -14,7 +14,7 @@
         $('#addItem').on('pageinit', function()
         {
                             
-              var storeData = function(data) 
+              $('#storeData').on('click', function() 
               {
                   var key;
                   var id;
@@ -38,7 +38,7 @@
                     
                     localStorage.setItem(id, JSON.stringify(item));
                     alert("The game was saved.");
-              };
+              });
 
 
               var myForm = $('#waitForm');
@@ -137,13 +137,13 @@
           
             $('#deleteItem').on('click', function() 
              {  
-                    localStorage.removeItem($(this).attr('key'));
+                   localStorage.removeItem($(this).attr('key'));
                    //Grab item with the key
                    //Delete the item in localStorage
                    alert("Game was deleted");
              });
              
-             $('#editItem').on('click', function(item) 
+             $('#editItem').on('click', function(item, key) 
              {   
                    key = $(this).data('key'); //Grab item with the key
                    //storeData(key);
