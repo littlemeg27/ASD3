@@ -14,7 +14,7 @@
         $('#addItem').on('pageinit', function()
         {
                             
-              $('#storeData').on('click', function() 
+              var storeData = function(data) 
               {
                   var key;
                   var id;
@@ -38,36 +38,36 @@
                     
                     localStorage.setItem(id, JSON.stringify(item));
                     alert("The game was saved.");
-              });
+              };
 
 
               var myForm = $('#waitForm');
               var errorFormLink = $('#errorFormLink');
             
-	            myForm.validate(
-	            {
-	                    invalidHandler: function(form, validator, storeData) 
-	                    {
-	                        errorFormLink.click();
-	                        var html = '';
-	                        
-	                        for(var key in validator.submitted)
-	                        {
-	                            var label = $('[for^="'+ key +'"]');
-	                            var legend = label.closest('fieldset').find('.ui-controlgroup-label');
-	                            var fieldName = legend.length ? legend.text() : label.text();
-	                            html += '<li>'+fieldName+'</li>';
-	                        }
-	                        
-	                        $("#errorFormPage ul").html(html);
-	                    },
-	                    
-	                    submitHandler: function() 
-	                    {
-	                        var data = myForm.serializeArray();
-	                        storeData(data);
-	                    }
-	            });
+                myForm.validate(
+                {
+                        invalidHandler: function(form, validator, storeData) 
+                        {
+                            errorFormLink.click();
+                            var html = '';
+                            
+                            for(var key in validator.submitted)
+                            {
+                                var label = $('[for^="'+ key +'"]');
+                                var legend = label.closest('fieldset').find('.ui-controlgroup-label');
+                                var fieldName = legend.length ? legend.text() : label.text();
+                                html += '<li>'+fieldName+'</li>';
+                            }
+                            
+                            $("#errorFormPage ul").html(html);
+                        },
+                        
+                        submitHandler: function() 
+                        {
+                            var data = myForm.serializeArray();
+                            storeData(data);
+                        }
+                });
 
               
                $('#deleteData').on('click', function(key) 
@@ -134,9 +134,10 @@
                 $('#gameList').listview('refresh');
             }
             
+          
             $('#deleteItem').on('click', function() 
              {  
-             	   localStorage.removeItem($(this).attr('key'));
+                    localStorage.removeItem($(this).attr('key'));
                    //Grab item with the key
                    //Delete the item in localStorage
                    alert("Game was deleted");
@@ -144,8 +145,8 @@
              
              $('#editItem').on('click', function() 
              {   
-             	   key = $(this).data('key');
-             	   //storeData(key);
+                    key = $(this).data('key');
+                    //storeData(key);
                    //var newKey = $(this).attr("key"); //Grab item with the key
                    var newValue = localStorage.getItem($(this).attr("key")); //Pull them up in the form
                    var item = JSON.parse(newValue); //Parse so you can read
@@ -156,15 +157,11 @@
                    $('#gameForm').val(item.park[1]); //Storing park back into the array
                    //We have to save one item at a time to be able to save the data into the array.
                    
-                   localStorage.removeItem(newKey); //Save over the old key 
+                   localStorage.removeItem(key); //Save over the old key 
                    alert("Game was edited!");
              });
 
-
-            
-            
          });
-         
          
        
        
@@ -203,7 +200,6 @@
                 });  
            
         }); 
-
 
 
 
