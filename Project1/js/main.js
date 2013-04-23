@@ -151,10 +151,10 @@
                    var newValue = localStorage.getItem($(this).attr("key")); //Pull them up in the form
                    var item = JSON.parse(newValue); //Parse so you can read
                    
-                   $('#gameForm').val(item.lastName[1]); //Storing lastName back into the array
-                   $('#gameForm').val(item.phoneNumber[1]); //Storing phoneNumber back into the array
-                   $('#gameForm').val(item.numberOfPeople[1]); //Storing numberOfPeople back into the array
-                   $('#gameForm').val(item.park[1]); //Storing park back into the array
+                   $('#lastName').val(item.lastName[1]); //Storing lastName back into the array
+                   $('#phoneNumber').val(item.phoneNumber[1]); //Storing phoneNumber back into the array
+                   $('#numberOfPeople').val(item.numberOfPeople[1]); //Storing numberOfPeople back into the array
+                   $('#park').val(item.park[1]); //Storing park back into the array
                    //We have to save one item at a time to be able to save the data into the array.
                    
                    localStorage.removeItem(key); //Save over the old key 
