@@ -145,9 +145,9 @@
              
              $('#editItem').on('click', function(item) 
              {   
-                   key = $(this).data('key');
+                   key = $(this).data('key'); //Grab item with the key
                    //storeData(key);
-                   //var newKey = $(this).attr("key"); //Grab item with the key
+                   //var newKey = $(this).attr("key"); 
                    var newValue = localStorage.getItem($(this).attr("key")); //Pull them up in the form
                    var item = JSON.parse(newValue); //Parse so you can read
                    
@@ -200,11 +200,3 @@
                 });  
            
         }); 
-
-
-
-
-
-
-
-
