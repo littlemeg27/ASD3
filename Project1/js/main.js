@@ -41,8 +41,17 @@
 	                        storeData(data);
 	                    }
 	            });
-	            
-	          var storeData = function()
+
+              
+               $('#deleteData').on('click', function(key) 
+               {   
+                   localStorage.clear(key);      
+                   alert("All the games were deleted");
+               });
+                       
+        });
+        
+        	  var storeData = function(data) 
               {
                   var key;
                   var id;
@@ -68,15 +77,6 @@
                     alert("The game was saved.");
               };
 
-
-              
-               $('#deleteData').on('click', function(key) 
-               {   
-                   localStorage.clear(key);      
-                   alert("All the games were deleted");
-               });
-                                       
-        });
         
         $('#dataPage').on('pageinit', function(item, data, key, storeData)
         {
@@ -136,7 +136,7 @@
             
             $('#deleteItem').on('click', function() 
              {  
-             	   localStorage.removeItem($(this).attr('key'));
+             	   localStorage.removeItem($(this).data('key'));
                    //Grab item with the key
                    //Delete the item in localStorage
                    alert("Game was deleted");
@@ -145,15 +145,15 @@
              $('#editItem').on('click', function() 
              {   
              	   key = $(this).data('key');
-             	   storeData(key);
-                   var newKey = $(this).attr("key"); //Grab item with the key
+             	   //storeData(key);
+                   //var newKey = $(this).attr("key"); //Grab item with the key
                    var newValue = localStorage.getItem($(this).attr("key")); //Pull them up in the form
                    var item = JSON.parse(newValue); //Parse so you can read
                    
-                   item.lastName = [$("#lastName").val()]; //Storing lastName into the array
-                   item.phoneNumber = [$("#phoneNumber").val()]; //Storing phoneNumber into the array
-                   item.numberOfPeople = [$("#numberOfPeople").val()]; //Storing numberOfPeople into the array
-                   item.park = [$("#park").val()]; //Storing park into the array
+                   $('#waitForm').val(item.lastName[1]); //Storing lastName back into the array
+                   $('#waitForm').val(item.phoneNumber[1]); //Storing phoneNumber back into the array
+                   $('#waitForm').val(item.numberOfPeople[1]); //Storing numberOfPeople back into the array
+                   $('#waitForm').val(item.park[1]); //Storing park back into the array
                    //We have to save one item at a time to be able to save the data into the array.
                    
                    localStorage.removeItem(newKey); //Save over the old key 
