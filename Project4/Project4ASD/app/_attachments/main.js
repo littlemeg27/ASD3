@@ -4,7 +4,7 @@
 
             $('#home').on("pageinit", function()
             {
-                $.couch.db("project4asd").view("app/reservation", 
+                $.couch.db("project4asd").view("app/game", 
                 {
                     success: function(data)
                     {
