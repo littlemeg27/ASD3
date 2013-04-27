@@ -1,0 +1,10 @@
+{
+  "env": {
+    "local": {
+      "db": "http://127.0.0.1:5984/project4asd"
+    },
+    "cloudant": {
+      "db": "https://littlemeg27:Dragonfly!@littlemeg27.cloudant.com/project4asd"
+    }
+  }
+}
