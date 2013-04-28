@@ -2,9 +2,15 @@
 //CRUD Project
 //ASD 1304
 
-            $('#home').on("pageinit", function()
+            $('#dataPage').on("pageinit", function()
             {
-                $.couch.db("project4ASD").view("app/game", 
+            
+            });
+
+            
+			$('#dataPage').on("pageinit", function()
+            {
+                $.couch.db("project4asd").view("app/game", 
                 {
                     success: function(data)
                     {
