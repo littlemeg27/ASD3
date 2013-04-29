@@ -2,7 +2,7 @@
 //CRUD Project
 //ASD 1304
 
-            $('#dataPage').on("pageinit", function()
+            $('#home').on("pageinit", function()
             {
             
             });
@@ -31,7 +31,7 @@
             });
            
             
-           /* var urlVars = function()
+            var urlVars = function()
             { 
                 var urlData = $($.mobile.activePage).data("url");
                 console.log(urlData)
@@ -47,4 +47,22 @@
                         urlValues[key] = value;
                     }
                     return urlValues;
-            };*/
+            };
+			
+			 var urlVars = function()
+	            { 
+	                var urlData = $($.mobile.activePage).data("url");
+	                console.log(urlData)
+	                var urlParts = urlData.split('?');
+	                var urlPairs = urlParts[1].split('&');
+	                var urlValues = {};
+	                
+	                    for(var pair in urlPairs)
+	                    {
+	                        var keyValue = urlPairs[pair].split('=');
+	                        var key = decodeURIComponent(keyValue[0]);
+	                        var value = decodeURIComponent(keyValue[1]);
+	                        urlValues[key] = value;
+	                    }
+	                    return urlValues;
+	            };
