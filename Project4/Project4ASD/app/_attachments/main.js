@@ -9,53 +9,49 @@
             
             $('#addItem').on("pageinit", function() //Start to add item page 
             {
-               
-                $('#saveData').on("click", function()
-                {
-                    var doc = {};
-                    $.couch.db("project4asd").saveDoc(doc,                  
+                    var saveData = function()
                     {
-                        success: function(data) 
-                        {
-                            console.log(data);
-                            
-                            var key;
-                            var gameId;
-                  
-                            if(!key)
-                            {
-                               gameId = Math.floor(Math.random()*1000001);    
-                            }
-                            
-                            else
-                            {
-                                gameId = key;
-                            }
-                            
-                            var item = {}; //Defining the array to save
-                                item.lastName = [$("#lastName").val()]; //Storing lastName into the array
-                                item.phoneNumber = [$("#phoneNumber").val()]; //Storing phoneNumber into the array 
-                                item.numberOfPeople = [$("#numberOfPeople").val()]; //Storing numberOfPeople into the array
-                                item.park = [$("#park").val()]; //Storing park into the array
-                                //We have to save one item at a time to be able to save the data into the array.
-                            
-                            $.couchdb("project4asd").saveDoc(gameId, JSON.stringify(item));
-                            alert("The game was saved.");
-                        },
-                        
-                        error: function(status) 
-                        {
-                            alert("Something went wrong");
-                        }
-                    });
-                });
-            
+                         var key;
+                         var gameId;
+               
+                         if(!key)
+                         {
+                            gameId = Math.floor(Math.random()*1000001);    
+                         }
+                         
+                         else
+                         {
+                             gameId = key;
+                         }
+                         
+                         var item = {}; //Defining the array to save
+                             item.lastName = 		[$("#lastName").val()]; //Storing lastName into the array
+                             item.phoneNumber = 	[$("#phoneNumber").val()]; //Storing phoneNumber into the array 
+                             item.numberOfPeople =  [$("#numberOfPeople").val()]; //Storing numberOfPeople into the array
+                             item.park = 			[$("#park").val()]; //Storing park into the array
+                             //We have to save one item at a time to be able to save the data into the array.
+                         
+                         $.couchdb('project4asd').saveDoc(item, 
+                         {
+                           success: function(data) 
+                           {
+                                console.log(data);
+                                alert("The game was saved!");
+                           },
+                           
+                           error: function(status) 
+                           {
+                               console.log(status);
+                               alert("Something went wrong");
+                           }
+                         });
+                    }; 
             });
 
             
             $('#dataPage').on("pageshow", function()
             {
-                $.couch.db("project4asd").view("app/game", 
+                $.couch.db('project4asd').view("app/game", 
                 {
                     success: function(data)
                     {
@@ -106,7 +102,7 @@
                  var lastName = urlVars()["lastName"];  
                  //console.log(lastName, "lastName");
                  
-                       $.couch.db("project4asd").view("app/game",
+                       $.couch.db('project4asd').view("app/game",
                        {    
                           success: function(data) //Going to use dataCall for the name to call my data
                           {  
@@ -118,10 +114,10 @@
                                   $('<li>').append(
                                   $('<a>').attr("href", "#")
                                                  .html(
-                                                         '<li>'+ lastName +'</li>'+
-                                                         '<li>'+ phoneNumber +'</li>'+
-                                                         '<li>'+ numberOfPeople +'</li>'+
-                                                         '<li>'+ park +'</li>' +
+                                                         '<li>'+ item.lastName +'</li>'+
+                                                         '<li>'+ item.phoneNumber +'</li>'+
+                                                         '<li>'+ item.numberOfPeople +'</li>'+
+                                                         '<li>'+ item.park +'</li>' +
                                                          '<button data-role="button" id="editItem" data-key="">Edit</button>' +
                                                          '<button data-role="button" id="deleteItem" data-key="">Delete</button>' 
                                                        )
@@ -134,7 +130,7 @@
                  
             /*     $('#dataPage').on("pageshow", function()
                    {
-                         $.couch.db("project4asd").removeDoc(
+                         $.couch.db('project4asd').removeDoc(
                          {
                              _id: id,
                              _rev: rev
@@ -154,6 +150,5 @@
                      });*/
                  
             });
-
 
 
