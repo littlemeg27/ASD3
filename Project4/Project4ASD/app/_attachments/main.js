@@ -9,26 +9,26 @@
             
           /*  $('#addItem').on("pageinit", function() //Start to add item page 
             {
-	            var doc = {};
-	            $.couch.db("project4asd").saveDoc(doc,
-	            {
-	                success: function(data) 
-	                {
-	                    console.log(data);
-	                    alert("Game has been saved");
-	                },
-	                
-	                error: function(status) 
-	                {
-	                	alert("Something went wrong");
-	                    console.log(status);
-	                }
-	            });
+                var doc = {};
+                $.couch.db("project4asd").saveDoc(doc,
+                {
+                    success: function(data) 
+                    {
+                        console.log(data);
+                        alert("Game has been saved");
+                    },
+                    
+                    error: function(status) 
+                    {
+                        alert("Something went wrong");
+                        console.log(status);
+                    }
+                });
             
             }*/
 
             
-			$('#dataPage').on("pageinit", function()
+            $('#dataPage').on("pageinit", function()
             {
                 $.couch.db("project4asd").view("app/game", 
                 {
@@ -50,23 +50,23 @@
                 });
                 
                 
-	            /*$.couch.db("project4asd").removeDoc(
-	            {
-	            	_id: id,
-	            	_rev: rev
-	            	
-	                success: function(data) 
-	                {
-	                    console.log(data);
-	                    alert("Game has been deleted!");
-	                },
-	                
-	                error: function(status) 
-	                {
-	                    alert("Something went wrong")
-	                	console.log(status);
-	                }
-	           });*/
+                /*$.couch.db("project4asd").removeDoc(
+                {
+                    _id: id,
+                    _rev: rev
+                    
+                    success: function(data) 
+                    {
+                        console.log(data);
+                        alert("Game has been deleted!");
+                    },
+                    
+                    error: function(status) 
+                    {
+                        alert("Something went wrong")
+                        console.log(status);
+                    }
+               });*/
             
             });
            
@@ -74,7 +74,7 @@
             var urlVars = function()
             { 
                 var urlData = $($.mobile.activePage).data("url");
-                console.log(urlData)
+                console.log(urlData);
                 var urlParts = urlData.split('?');
                 console.log(urlParts);
                 var urlPairs = urlParts[1].split('&');
@@ -89,10 +89,16 @@
                     }
                     return urlValues;
             };
-			
+            
             $(document).on('pageinit', '#lastName', function()
             {
                  var lastName = urlVars()["item.lastName"];
                  
                         
                  });
+
+
+
+
+
+
