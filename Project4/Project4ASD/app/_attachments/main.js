@@ -76,6 +76,7 @@
                 var urlData = $($.mobile.activePage).data("url");
                 console.log(urlData)
                 var urlParts = urlData.split('?');
+                console.log(urlParts);
                 var urlPairs = urlParts[1].split('&');
                 var urlValues = {};
                 
