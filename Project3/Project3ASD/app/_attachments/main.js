@@ -3,7 +3,7 @@
 //ASD 1304
  
 
-        $('#home').on('pageinit', function()
+       		    $('#home').on('pageinit', function()
                 {
                             $.ajax(
                             {    
