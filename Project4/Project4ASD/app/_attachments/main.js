@@ -6,6 +6,26 @@
             {
             
             });
+            
+          /*  $('#addItem').on("pageinit", function() //Start to add item page 
+            {
+	            var doc = {};
+	            $.couch.db("project4asd").saveDoc(doc,
+	            {
+	                success: function(data) 
+	                {
+	                    console.log(data);
+	                    alert("Game has been saved");
+	                },
+	                
+	                error: function(status) 
+	                {
+	                	alert("Something went wrong");
+	                    console.log(status);
+	                }
+	            });
+            
+            }*/
 
             
 			$('#dataPage').on("pageinit", function()
@@ -28,6 +48,26 @@
                         $('#gameList').listview('refresh');
                     }
                 });
+                
+                
+	            /*$.couch.db("project4asd").removeDoc(
+	            {
+	            	_id: id,
+	            	_rev: rev
+	            	
+	                success: function(data) 
+	                {
+	                    console.log(data);
+	                    alert("Game has been deleted!");
+	                },
+	                
+	                error: function(status) 
+	                {
+	                    alert("Something went wrong")
+	                	console.log(status);
+	                }
+	           });*/
+            
             });
            
             
