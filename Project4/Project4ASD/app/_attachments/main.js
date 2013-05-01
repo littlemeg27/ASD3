@@ -28,7 +28,7 @@
             }*/
 
             
-            $('#dataPage').on("pageinit", function()
+            $('#dataPage').on("pageshow", function()
             {
                 $.couch.db("project4asd").view("app/game", 
                 {
@@ -47,10 +47,10 @@
                         });
                         $('#gameList').listview('refresh');
                     }
-                });
+                 });
                 
                 
-                /*$.couch.db("project4asd").removeDoc(
+          /*      $.couch.db("project4asd").removeDoc(
                 {
                     _id: id,
                     _rev: rev
@@ -66,36 +66,35 @@
                         alert("Something went wrong")
                         console.log(status);
                     }
-               });*/
+               }); */
             
             });
-           
+
             
-            var urlVars = function()
-            { 
-                var urlData = $($.mobile.activePage).data("url");
-                console.log(urlData);
-                var urlParts = urlData.split('?');
-                console.log(urlParts);
-                var urlPairs = urlParts[1].split('&');
-                var urlValues = {};
-                
-                    for(var pair in urlPairs)
-                    {
-                        var keyValue = urlPairs[pair].split('=');
-                        var key = decodeURIComponent(keyValue[0]);
-                        var value = decodeURIComponent(keyValue[1]);
-                        urlValues[key] = value;
-                    }
-                    return urlValues;
-            };
-            
-            $(document).on('pageinit', '#lastName', function()
+            $(document).on('pageshow', '#lastName', function()
             {
-                 var lastName = urlVars()["item.lastName"];
-                 
-                        
-                 });
+                var urlVars = function()
+                { 
+                    var urlData = $($.mobile.activePage).data("url");
+                    console.log(urlData);
+                    var urlParts = urlData.split('?');
+                    console.log(urlParts);
+                    console.log(urlParts[2]);
+                    var urlPairs = urlParts[1].split('&');
+                    var urlValues = {};
+                    
+                        for(var pair in urlPairs)
+                        {
+                            var keyValue = urlPairs[pair].split('=');
+                            var key = decodeURIComponent(keyValue[0]);
+                            var value = decodeURIComponent(keyValue[1]);
+                            urlValues[key] = value;
+                        }
+                        return urlValues;
+                };
+            	
+                 var lastName = urlVars()["item.lastName"];    
+            });
 
 
 
