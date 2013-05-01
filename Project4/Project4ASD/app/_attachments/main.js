@@ -13,7 +13,7 @@
                 $('#saveData').on("click", function()
                 {
                     var doc = {};
-                    $.couch.db("project4asd").saveDoc(doc, function()
+                    $.couch.db("project4asd").saveDoc(doc,                  
                     {
                         success: function(data) 
                         {
@@ -39,7 +39,7 @@
                                 item.park = [$("#park").val()]; //Storing park into the array
                                 //We have to save one item at a time to be able to save the data into the array.
                             
-                            couchdb().saveDoc(gameId, JSON.stringify(item));
+                            $.couchdb("project4asd").saveDoc(gameId, JSON.stringify(item));
                             alert("The game was saved.");
                         },
                         
@@ -110,16 +110,13 @@
                        {    
                           success: function(data) //Going to use dataCall for the name to call my data
                           {  
-                             $.each(data.rows, function(index, game)
-                             {
-                                 var lastName         = game.value.lastName;
-                                 var numberOfPeople   = game.value.numberOfPeople;
-                                 var phoneNumber      = game.value.phoneNumber;
-                                 var park             = game.value.park;
-                                         
-                                 $('#lastNameList').append(
-                                 $('<li>').append( 
-                                         $('<a>').attr("href", "#")
+                              $('#gameList').empty();
+                              $.each(data.rows, function(index, value)
+                              {
+                                  var item = (value.value || value.doc);
+                                  $('#gameList').append(
+                                  $('<li>').append(
+                                  $('<a>').attr("href", "#")
                                                  .html(
                                                          '<li>'+ lastName +'</li>'+
                                                          '<li>'+ phoneNumber +'</li>'+
@@ -157,7 +154,6 @@
                      });*/
                  
             });
-
 
 
 
