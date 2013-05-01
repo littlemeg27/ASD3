@@ -106,10 +106,8 @@
                  var lastName = urlVars()["lastName"];  
                  //console.log(lastName, "lastName");
                  
-                 $.ajax(
+                       $.couch.db("project4asd").view("app/game",
                        {    
-                          url: "_view/game", //What i am getting 
-                          dataType: "json", //Getting JSON data, located in data.json   
                           success: function(data) //Going to use dataCall for the name to call my data
                           {  
                              $.each(data.rows, function(index, game)
