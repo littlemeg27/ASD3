@@ -9,20 +9,45 @@
             
           /*  $('#addItem').on("pageinit", function() //Start to add item page 
             {
-                var doc = {};
-                $.couch.db("project4asd").saveDoc(doc,
+               
+                $('#saveData').on("click", function()
                 {
-                    success: function(data) 
-                    {
-                        console.log(data);
-                        alert("Game has been saved");
-                    },
-                    
-                    error: function(status) 
-                    {
-                        alert("Something went wrong");
-                        console.log(status);
-                    }
+	                var doc = {};
+	                $.couch.db("project4asd").saveDoc(doc,
+	                {
+	                    success: function(data) 
+	                    {
+	                        console.log(data);
+	                        
+	                        var key;
+                  			var id;
+                  
+		                    if(!key)
+		                    {
+		                       id = Math.floor(Math.random()*1000001);    
+		                    }
+		                    
+		                    else
+		                    {
+		                        id = key;
+		                    }
+		                    
+		                    var item = {}; //Defining the array to save
+		                        item.lastName = [$("#lastName").val()]; //Storing lastName into the array
+		                        item.phoneNumber = [$("#phoneNumber").val()]; //Storing phoneNumber into the array 
+		                        item.numberOfPeople = [$("#numberOfPeople").val()]; //Storing numberOfPeople into the array
+		                        item.park = [$("#park").val()]; //Storing park into the array
+		                        //We have to save one item at a time to be able to save the data into the array.
+		                    
+		                    localStorage.setItem(id, JSON.stringify(item));
+		                    alert("The game was saved.");
+	                    },
+	                    
+	                    error: function(status) 
+	                    {
+	                        alert("Something went wrong");
+	                    }
+	                });
                 });
             
             }*/
@@ -42,32 +67,12 @@
                             $('<li>').append(
                             $('<a>').attr("href", "lastName.html?lastName=" + item.lastName)
                                     .text(item.lastName)
-                            )        
-                            );
+                            			    )        
+                            					 );
                         });
                         $('#gameList').listview('refresh');
                     }
                  });
-                
-                
-          /*      $.couch.db("project4asd").removeDoc(
-                {
-                    _id: id,
-                    _rev: rev
-                    
-                    success: function(data) 
-                    {
-                        console.log(data);
-                        alert("Game has been deleted!");
-                    },
-                    
-                    error: function(status) 
-                    {
-                        alert("Something went wrong")
-                        console.log(status);
-                    }
-               }); */ //Move this to the last page lastName
-            
             });
 
             
@@ -76,30 +81,30 @@
                 var urlVars = function()
                 { 
                     var urlData = $($.mobile.activePage).data("url");
-                    console.log(urlData, "urlData");
+                    //console.log(urlData, "urlData");
                     var urlParts = urlData.split('?');
-                    console.log(urlParts, "urlParts");
+                    //console.log(urlParts, "urlParts");
                     var urlPairs = urlParts[1].split('&');
-                    console.log(urlPairs, "urlPairs");
+                    //console.log(urlPairs, "urlPairs");
                     var urlValues = {};
-                    console.log(urlValues, "urlValues");
+                    //console.log(urlValues, "urlValues");
                     
                         for(var pair in urlPairs)
                         {
                             var keyValue = urlPairs[pair].split('=');
-                            console.log(keyValue, "keyValue");
+                            //console.log(keyValue, "keyValue");
                             var key = decodeURIComponent(keyValue[0]);
-                            console.log(key, "key");
+                            //console.log(key, "key");
                             var value = decodeURIComponent(keyValue[1]);
-                            console.log(value, "value");
+                            //console.log(value, "value");
                             urlValues[key] = value;
-                            console.log(urlValues, "urlValues");
+                            //console.log(urlValues, "urlValues");
                         }
                         return urlValues;
                 };
                 
                  var lastName = urlVars()["lastName"];  
-                 console.log(lastName, "lastName");
+                 //console.log(lastName, "lastName");
                  
                  $.ajax(
                        {    
@@ -117,21 +122,42 @@
                                  $('#lastNameList').append(
                                  $('<li>').append( 
                                          $('<a>').attr("href", "#")
-                                                 .text(
+                                                 .html(
                                                          '<li>'+ lastName +'</li>'+
                                                          '<li>'+ phoneNumber +'</li>'+
                                                          '<li>'+ numberOfPeople +'</li>'+
                                                          '<li>'+ park +'</li>' +
-                                                         '<button data-role="button" id="editItem" data-key=" ' + rev + ' ">Edit</button>' +
-                                                         '<button data-role="button" id="deleteItem" data-key=" ' + rev + ' ">Delete</button>' 
+                                                         '<button data-role="button" id="editItem" data-key="">Edit</button>' +
+                                                         '<button data-role="button" id="deleteItem" data-key="">Delete</button>' 
                                                        )
-
-                                                         )
-                                                                     );
-                                     });
-                                     $('#lastNameList').listview('refresh');
-                                 }               
-                         });
+                                                  )
+                                                            );
+                               });
+                               $('#lastNameList').listview('refresh');
+                          }               
+                      });
+                 
+            /*     $('#dataPage').on("pageshow", function()
+                   {
+	                     $.couch.db("project4asd").removeDoc(
+		                 {
+		                     _id: id,
+		                     _rev: rev
+		                     
+		                     success: function(data) 
+		                     {
+		                         console.log(data);
+		                         alert("Game has been deleted!");
+		                     },
+		                     
+		                     error: function(status) 
+		                     {
+		                         alert("Something went wrong")
+		                         console.log(status);
+		                     }
+		                  }); 
+	                 });*/
+                 
             });
 
 
