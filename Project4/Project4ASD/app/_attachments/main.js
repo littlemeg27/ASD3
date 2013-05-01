@@ -7,50 +7,50 @@
             
             });
             
-          /*  $('#addItem').on("pageinit", function() //Start to add item page 
+            $('#addItem').on("pageinit", function() //Start to add item page 
             {
                
                 $('#saveData').on("click", function()
                 {
-	                var doc = {};
-	                $.couch.db("project4asd").saveDoc(doc,
-	                {
-	                    success: function(data) 
-	                    {
-	                        console.log(data);
-	                        
-	                        var key;
-                  			var id;
+                    var doc = {};
+                    $.couch.db("project4asd").saveDoc(doc,
+                    {
+                        success: function(data) 
+                        {
+                            console.log(data);
+                            
+                            var key;
+                              var gameId;
                   
-		                    if(!key)
-		                    {
-		                       id = Math.floor(Math.random()*1000001);    
-		                    }
-		                    
-		                    else
-		                    {
-		                        id = key;
-		                    }
-		                    
-		                    var item = {}; //Defining the array to save
-		                        item.lastName = [$("#lastName").val()]; //Storing lastName into the array
-		                        item.phoneNumber = [$("#phoneNumber").val()]; //Storing phoneNumber into the array 
-		                        item.numberOfPeople = [$("#numberOfPeople").val()]; //Storing numberOfPeople into the array
-		                        item.park = [$("#park").val()]; //Storing park into the array
-		                        //We have to save one item at a time to be able to save the data into the array.
-		                    
-		                    localStorage.setItem(id, JSON.stringify(item));
-		                    alert("The game was saved.");
-	                    },
-	                    
-	                    error: function(status) 
-	                    {
-	                        alert("Something went wrong");
-	                    }
-	                });
+                            if(!key)
+                            {
+                               gameId = Math.floor(Math.random()*1000001);    
+                            }
+                            
+                            else
+                            {
+                                gameId = key;
+                            }
+                            
+                            var item = {}; //Defining the array to save
+                                item.lastName = [$("#lastName").val()]; //Storing lastName into the array
+                                item.phoneNumber = [$("#phoneNumber").val()]; //Storing phoneNumber into the array 
+                                item.numberOfPeople = [$("#numberOfPeople").val()]; //Storing numberOfPeople into the array
+                                item.park = [$("#park").val()]; //Storing park into the array
+                                //We have to save one item at a time to be able to save the data into the array.
+                            
+                            localStorage.setItem(gameId, JSON.stringify(item));
+                            alert("The game was saved.");
+                        },
+                        
+                        error: function(status) 
+                        {
+                            alert("Something went wrong");
+                        }
+                    });
                 });
             
-            }*/
+            });
 
             
             $('#dataPage').on("pageshow", function()
@@ -67,8 +67,8 @@
                             $('<li>').append(
                             $('<a>').attr("href", "lastName.html?lastName=" + item.lastName)
                                     .text(item.lastName)
-                            			    )        
-                            					 );
+                                            )        
+                                                 );
                         });
                         $('#gameList').listview('refresh');
                     }
@@ -139,27 +139,26 @@
                  
             /*     $('#dataPage').on("pageshow", function()
                    {
-	                     $.couch.db("project4asd").removeDoc(
-		                 {
-		                     _id: id,
-		                     _rev: rev
-		                     
-		                     success: function(data) 
-		                     {
-		                         console.log(data);
-		                         alert("Game has been deleted!");
-		                     },
-		                     
-		                     error: function(status) 
-		                     {
-		                         alert("Something went wrong")
-		                         console.log(status);
-		                     }
-		                  }); 
-	                 });*/
+                         $.couch.db("project4asd").removeDoc(
+                         {
+                             _id: id,
+                             _rev: rev
+                             
+                             success: function(data) 
+                             {
+                                 console.log(data);
+                                 alert("Game has been deleted!");
+                             },
+                             
+                             error: function(status) 
+                             {
+                                 alert("Something went wrong")
+                                 console.log(status);
+                             }
+                          }); 
+                     });*/
                  
             });
-
 
 
 
