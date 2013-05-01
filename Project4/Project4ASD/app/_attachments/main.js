@@ -13,7 +13,7 @@
                 $('#saveData').on("click", function()
                 {
                     var doc = {};
-                    $.couch.db("project4asd").saveDoc(doc,
+                    $.couch.db("project4asd").saveDoc(doc, function()
                     {
                         success: function(data) 
                         {
