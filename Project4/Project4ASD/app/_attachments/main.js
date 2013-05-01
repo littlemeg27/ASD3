@@ -97,46 +97,42 @@
                         }
                         return urlValues;
                 };
-            	
+                
                  var lastName = urlVars()["lastName"];  
                  console.log(lastName, "lastName");
                  
                  $.ajax(
-                         {    
-                                 url: "_view/game", //What i am getting 
-                                 dataType: "json", //Getting JSON data, located in data.json   
-                                 success: function(data) //Going to use dataCall for the name to call my data
-                                  {  
-                                     $.each(data.rows, function(index, game)
-                                     {
-                                         var lastName         = game.value.lastName;
-                                         var numberOfPeople   = game.value.numberOfPeople;
-                                         var phoneNumber      = game.value.phoneNumber;
-                                         var park             = game.value.park;
+                       {    
+                          url: "_view/game", //What i am getting 
+                          dataType: "json", //Getting JSON data, located in data.json   
+                          success: function(data) //Going to use dataCall for the name to call my data
+                          {  
+                             $.each(data.rows, function(index, game)
+                             {
+                                 var lastName         = game.value.lastName;
+                                 var numberOfPeople   = game.value.numberOfPeople;
+                                 var phoneNumber      = game.value.phoneNumber;
+                                 var park             = game.value.park;
                                          
-                                         $('#lastNameList').append(
-                                         $('<li>').append( //Not gonna work think way have to rethink it
+                                 $('#lastNameList').append(
+                                 $('<li>').append( 
                                          $('<a>').attr("href", "#")
-                                         		.text(
-                                         				'<li>'+ game.lastName +'</li>'+
-                                         	            '<li>'+ game.phoneNumber +'</li>'+
-                                         	            '<li>'+ game.numberOfPeople +'</li>'+
-                                         	            '<li>'+ game.park +'</li>' +
-                                         	            '<button data-role="button" id="editItem" data-key=" ' + rev + ' ">Edit</button>' +
-                                         	            '<button data-role="button" id="deleteItem" data-key=" ' + rev + ' ">Delete</button>' 
-                                         	            ).appendTo("#lastNameList").listview(); //Appending to the li  
+                                                 .text(
+                                                         '<li>'+ lastName +'</li>'+
+                                                         '<li>'+ phoneNumber +'</li>'+
+                                                         '<li>'+ numberOfPeople +'</li>'+
+                                                         '<li>'+ park +'</li>' +
+                                                         '<button data-role="button" id="editItem" data-key=" ' + rev + ' ">Edit</button>' +
+                                                         '<button data-role="button" id="deleteItem" data-key=" ' + rev + ' ">Delete</button>' 
+                                                       )
 
-                                         				)
-                                         				)
-                                         							);
-                                                 
+                                                         )
+                                                                     );
                                      });
                                      $('#lastNameList').listview('refresh');
-             
                                  }               
                          });
             });
-
 
 
 
