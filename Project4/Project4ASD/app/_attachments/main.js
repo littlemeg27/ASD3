@@ -76,24 +76,30 @@
                 var urlVars = function()
                 { 
                     var urlData = $($.mobile.activePage).data("url");
-                    console.log(urlData);
+                    console.log(urlData, "urlData");
                     var urlParts = urlData.split('?');
-                    console.log(urlParts);
-                    console.log(urlParts[2]);
+                    console.log(urlParts, "urlParts");
                     var urlPairs = urlParts[1].split('&');
+                    console.log(urlPairs, "urlPairs");
                     var urlValues = {};
+                    console.log(urlValues, "urlValues");
                     
                         for(var pair in urlPairs)
                         {
                             var keyValue = urlPairs[pair].split('=');
+                            console.log(keyValue, "keyValue");
                             var key = decodeURIComponent(keyValue[0]);
+                            console.log(key, "key");
                             var value = decodeURIComponent(keyValue[1]);
+                            console.log(value, "value");
                             urlValues[key] = value;
+                            console.log(urlValues, "urlValues");
                         }
                         return urlValues;
                 };
             	
-                 var lastName = urlVars()["item.lastName"];    
+                 var lastName = urlVars()["lastName"];  
+                 console.log(lastName, "lastName");
             });
 
 
