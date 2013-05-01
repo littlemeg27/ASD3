@@ -20,7 +20,7 @@
                             console.log(data);
                             
                             var key;
-                              var gameId;
+                            var gameId;
                   
                             if(!key)
                             {
@@ -39,7 +39,7 @@
                                 item.park = [$("#park").val()]; //Storing park into the array
                                 //We have to save one item at a time to be able to save the data into the array.
                             
-                            localStorage.setItem(gameId, JSON.stringify(item));
+                            couchdb().saveDoc(gameId, JSON.stringify(item));
                             alert("The game was saved.");
                         },
                         
