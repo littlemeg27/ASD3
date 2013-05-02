@@ -76,6 +76,9 @@
             
             $(document).on('pageshow', '#lastName', function() //Start of lastName.html js code
             {
+                var _id:  gameID;
+                var _rev: gameRev;
+                
                 var urlVars = function()
                 { 
                     var urlData = $($.mobile.activePage).data("url");
@@ -120,8 +123,8 @@
                                                          '<li>'+ item.phoneNumber +'</li>'+
                                                          '<li>'+ item.numberOfPeople +'</li>'+
                                                          '<li>'+ item.park +'</li>' +
-                                                         '<button data-role="button" id="editItem" data-key="">Edit</button>' +
-                                                         '<button data-role="button" id="deleteItem" data-key="">Delete</button>' 
+                                                         '<button data-role="button" id="editItem" data-id=" ' + gameID + ' " data-rev=" ' + gameRev + ' ">Edit</button>' +
+                                                         '<button data-role="button" id="deleteItem" data-id=" ' + gameID + ' " data-rev=" ' + gameRev + ' ">Delete</button>' 
                                                        )
                                                   )
                                                             );
@@ -131,40 +134,56 @@
                       });
                  
                    
-                      /*   $.couch.db('project4asd').removeDoc(  //Delete item
-                         {
-                             _id: id,
-                             _rev: rev
-                             
-                             success: function(data) 
-                             {
-                                 console.log(data);
-                                 alert("Game has been deleted!");
-                             },
-                             
-                             error: function(status) 
-                             {
-                                 alert("Something went wrong")
-                                 console.log(status);
-                             }
-                          }); //End of delete item
-                         
-                         $.couch.db('project4asd').openDoc(  //Edit item
-                         {
-                             _id: id,
-                             _rev: rev
-                                     
-                             success: function(data) 
-                             {
-                                 console.log(data);
-                                 alert("Game has been deleted!");
-                             },
-                                     
-                             error: function(status) 
-                             {
-                                 alert("Something went wrong")
-                                 console.log(status);
-                             }
-                         }); //End of edit item */
-                         
+                    
+                       $(document).on('click', '#deleteItem', function() //deleteButton
+                       {
+                           var ask = confirm("Do you want to delete this game?");
+                           
+                           if(ask) 
+                           {
+                                   $.couch.db('lastName').removeDoc(
+                                   {
+                                       _id:  gameID, 
+                                       _rev: gameRev
+                                   },
+                                   {
+                                       success: function() 
+                                       {
+                                           alert('The game was deleted!');
+                                       },
+                                       error: function(status) 
+                                    {
+                                        alert("Something went wrong");
+                                        console.log(status);
+                                    }
+                                   });
+                           }
+                        });
+                       
+                       $(document).on('click', '#editItem', function() //editButton
+                       {
+                           $.couch.db('lastName').saveDoc(
+                               {
+                                   _id:gameID, 
+                                   _rev: gameRev
+                                   
+                                   $('#lastName').val(value.lastName[1]); //Not sure if this is right, but 
+                                   $('#phoneNumber').val(value.phoneNumber[1]); //Help would be awesome
+                                   $('#numberOfPeople').val(value.numberOfPeople[1]); 
+                                   $('#park').val(value.park[1]);
+                               },
+                               
+                               {
+                                   success: function() 
+                                   {
+                                       alert('You edited the contact!');
+                                   },
+                                   error: function(status) 
+                                {
+                                     alert("Something went wrong")
+                                     console.log(status);
+                                }
+                               })
+                       });
+                       
             }); //End of lastName.html js code.
