@@ -9,8 +9,9 @@
             
             $('#addItem').on("pageinit", function() //Start to add item page 
             {
-                    var saveData = function()
+                    $("#saveData").on('click', function()
                     {
+                        console.log("Inside the start of save");
                          var key;
                          var gameId;
                
@@ -25,17 +26,17 @@
                          }
                          
                          var item = {}; //Defining the array to save
-                             item.lastName = 		[$("#lastName").val()]; //Storing lastName into the array
-                             item.phoneNumber = 	[$("#phoneNumber").val()]; //Storing phoneNumber into the array 
-                             item.numberOfPeople =  [$("#numberOfPeople").val()]; //Storing numberOfPeople into the array
-                             item.park = 			[$("#park").val()]; //Storing park into the array
+                             item.lastName =         [$("#lastName").val()]; //Storing lastName into the array
+                             item.phoneNumber =      [$("#phoneNumber").val()]; //Storing phoneNumber into the array 
+                             item.numberOfPeople =   [$("#numberOfPeople").val()]; //Storing numberOfPeople into the array
+                             item.park =             [$("#park").val()]; //Storing park into the array
                              //We have to save one item at a time to be able to save the data into the array.
-                         
-                         $.couchdb('project4asd').saveDoc(item, 
+                         console.log("After storing the fields");
+                         $.couch.db('project4asd').saveDoc(item, 
                          {
-                           success: function(data) 
+                           success: function(item) 
                            {
-                                console.log(data);
+                                console.log(item);
                                 alert("The game was saved!");
                            },
                            
@@ -45,7 +46,8 @@
                                alert("Something went wrong");
                            }
                          });
-                    }; 
+                         alert("Something happened!!");
+                    }); 
             });
 
             
@@ -114,10 +116,10 @@
                                   $('<li>').append(
                                   $('<a>').attr("href", "#") //Trying to display all info
                                                  .html(
-                                                         '<li>'+ game.value.lastName +'</li>'+
-                                                         '<li>'+ game.value.phoneNumber +'</li>'+
-                                                         '<li>'+ game.value.numberOfPeople +'</li>'+
-                                                         '<li>'+ game.value.park +'</li>' +
+                                                         '<li>'+ game.lastName +'</li>'+
+                                                         '<li>'+ game.phoneNumber +'</li>'+
+                                                         '<li>'+ game.numberOfPeople +'</li>'+
+                                                         '<li>'+ game.park +'</li>' +
                                                          '<button data-role="button" id="editItem" data-key="">Edit</button>' +
                                                          '<button data-role="button" id="deleteItem" data-key="">Delete</button>' 
                                                        )
@@ -128,9 +130,8 @@
                           }               
                       });
                  
-                 /*  $('#dataPage').on("pageshow", function()
-                   {
-                         $.couch.db('project4asd').removeDoc(
+                   
+                      /*   $.couch.db('project4asd').removeDoc(  //Delete item
                          {
                              _id: id,
                              _rev: rev
@@ -146,9 +147,25 @@
                                  alert("Something went wrong")
                                  console.log(status);
                              }
-                          }); 
-                     });*/
-                 
+                          }); //End of delete item
+                         
+                         $.couch.db('project4asd').openDoc(  //Edit item
+                         {
+                             _id: id,
+                             _rev: rev
+                                     
+                             success: function(data) 
+                             {
+                                 console.log(data);
+                                 alert("Game has been deleted!");
+                             },
+                                     
+                             error: function(status) 
+                             {
+                                 alert("Something went wrong")
+                                 console.log(status);
+                             }
+                         }); //End of edit item */
+                         
             }); //End of lastName.html js code.
-
 
