@@ -108,13 +108,13 @@
                        {    
                           success: function(data) //Going to use dataCall for the name to call my data
                           {  
-                              $('#gameList').empty();
-                              $.each(data.rows, function(index, game)
+                              $('#lastNameList').empty();
+                              $.each(data.rows, function(index, value)
                               {
-                                  var item = (game.value || game.doc);
-                                  $('#gameList').append(
+                                  var item = (value.value || value.doc);
+                                  $('#lastNameList').append(
                                   $('<li>').append(
-                                  $('<a>').attr("href", "#") //Trying to display all info
+                                  $('<a>').attr("href", "#") //Trying to display all info 
                                                  .html(
                                                          '<li>'+ item.lastName +'</li>'+
                                                          '<li>'+ item.phoneNumber +'</li>'+
@@ -168,4 +168,3 @@
                          }); //End of edit item */
                          
             }); //End of lastName.html js code.
-
