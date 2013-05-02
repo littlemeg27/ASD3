@@ -116,10 +116,10 @@
                                   $('<li>').append(
                                   $('<a>').attr("href", "#") //Trying to display all info
                                                  .html(
-                                                         '<li>'+ game.lastName +'</li>'+
-                                                         '<li>'+ game.phoneNumber +'</li>'+
-                                                         '<li>'+ game.numberOfPeople +'</li>'+
-                                                         '<li>'+ game.park +'</li>' +
+                                                         '<li>'+ item.lastName +'</li>'+
+                                                         '<li>'+ item.phoneNumber +'</li>'+
+                                                         '<li>'+ item.numberOfPeople +'</li>'+
+                                                         '<li>'+ item.park +'</li>' +
                                                          '<button data-role="button" id="editItem" data-key="">Edit</button>' +
                                                          '<button data-role="button" id="deleteItem" data-key="">Delete</button>' 
                                                        )
