@@ -49,7 +49,7 @@
             });
 
             
-            $('#dataPage').on("pageshow", function()
+            $('#dataPage').on("pageshow", function() 
             {
                 $.couch.db('project4asd').view("app/game", 
                 {
@@ -69,10 +69,10 @@
                         $('#gameList').listview('refresh');
                     }
                  });
-            });
+            }); //End of dataPage
 
             
-            $(document).on('pageshow', '#lastName', function()
+            $(document).on('pageshow', '#lastName', function() //Start of lastName.html js code
             {
                 var urlVars = function()
                 { 
@@ -97,9 +97,9 @@
                             //console.log(urlValues, "urlValues");
                         }
                         return urlValues;
-                };
+                }; //End of urlVars function
                 
-                 var lastName = urlVars()["lastName"];  
+                 var lastName = urlVars()["lastName"]; //Function to call lastNames
                  //console.log(lastName, "lastName");
                  
                        $.couch.db('project4asd').view("app/game",
@@ -107,17 +107,17 @@
                           success: function(data) //Going to use dataCall for the name to call my data
                           {  
                               $('#gameList').empty();
-                              $.each(data.rows, function(index, value)
+                              $.each(data.rows, function(index, game)
                               {
-                                  var item = (value.value || value.doc);
+                                  var item = (game.value || game.doc);
                                   $('#gameList').append(
                                   $('<li>').append(
-                                  $('<a>').attr("href", "#")
+                                  $('<a>').attr("href", "#") //Trying to display all info
                                                  .html(
-                                                         '<li>'+ item.lastName +'</li>'+
-                                                         '<li>'+ item.phoneNumber +'</li>'+
-                                                         '<li>'+ item.numberOfPeople +'</li>'+
-                                                         '<li>'+ item.park +'</li>' +
+                                                         '<li>'+ game.value.lastName +'</li>'+
+                                                         '<li>'+ game.value.phoneNumber +'</li>'+
+                                                         '<li>'+ game.value.numberOfPeople +'</li>'+
+                                                         '<li>'+ game.value.park +'</li>' +
                                                          '<button data-role="button" id="editItem" data-key="">Edit</button>' +
                                                          '<button data-role="button" id="deleteItem" data-key="">Delete</button>' 
                                                        )
@@ -128,7 +128,7 @@
                           }               
                       });
                  
-            /*     $('#dataPage').on("pageshow", function()
+                 /*  $('#dataPage').on("pageshow", function()
                    {
                          $.couch.db('project4asd').removeDoc(
                          {
@@ -149,6 +149,6 @@
                           }); 
                      });*/
                  
-            });
+            }); //End of lastName.html js code.
 
 
