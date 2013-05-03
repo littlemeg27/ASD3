@@ -13,16 +13,16 @@
                     {
                         console.log("Inside the start of save");
                          var key;
-                         var gameId;
+                         var id;
                
                          if(!key)
                          {
-                            gameId = Math.floor(Math.random()*1000001);    
+                            id = Math.floor(Math.random()*1000001);    
                          }
                          
                          else
                          {
-                             gameId = key;
+                             id = key;
                          }
                          
                          var item = {}; //Defining the array to save
