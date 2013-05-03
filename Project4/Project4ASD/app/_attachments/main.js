@@ -135,7 +135,7 @@
                  
                    
                     
-                       $(document).on('click', '#deleteItem', function() //deleteButton
+                       $('#deleteItem').on('click', function() //deleteButton
                        {
                            var ask = confirm("Do you want to delete this game?");
                            
@@ -160,7 +160,7 @@
                            }
                         });
                        
-                       $(document).on('click', '#editItem', function() //editButton
+                       $('#editItem').on('click', function() //editButton
                        {
                            $.couch.db('lastName').saveDoc(
                                {
@@ -184,6 +184,6 @@
                                      console.log(status);
                                 }
                                })
-                       });
+                       });*/
                        
             }); //End of lastName.html js code.
