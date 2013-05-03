@@ -162,12 +162,15 @@
                        
                        $('#editItem').on('click', function() //editButton
                        { //Having to rethink this, going to copy in the old edit.
-                    	   
-                    	   key = $(this).data('key'); //Grab item with the key
+                    	  
+                    	   //Save key (old doc) to oldKey 
+                    	   oldKey = $(this).data('gameID'); //Grab item with the key
                     	   //Line above should work with a little help.
                     	  
-                    	   $.couch.db("project4asd").openDoc("d12ee5ea1df6baa2b06451f44a019ab9", 
+                    	   $.couch.db("project4asd").openDoc("gameID", 
                     	   {
+                    		   //Edit
+                    		   
                     		    success: function(data) 
                     		    {
                     		        console.log(data);
@@ -178,14 +181,33 @@
                     		    }
                     		}); //Pull them up in the form
                     	   
-                    	   
-                           var item = JSON.parse(newValue); //Parse so you can read
+                    	    //var item = JSON.parse(newValue); //Parse so you can read //Leaving this in here not sure if you have to parse
                            
-                           $('#lastName').val(list.lastName[1]); //Storing lastName back into the array
-                           $('#phoneNumber').val(list.phoneNumber[1]); //Storing phoneNumber back into the array
-                           $('#numberOfPeople').val(list.numberOfPeople[1]); //Storing numberOfPeople back into the array
-                           $('#park').val(list.park[1]); //Storing park back into the array
-                           //We have to save one item at a time to be able to save the data into the array.
+                    	   var doc = 
+                    	   {
+                    			    _id: "gameID",
+                    			    _rev: "gameRev",
+                    			    $('#lastName').val(item.lastName[1]); //Storing lastName back into the array
+                                    $('#phoneNumber').val(item.phoneNumber[1]); //Storing phoneNumber back into the array
+                                    $('#numberOfPeople').val(item.numberOfPeople[1]); //Storing numberOfPeople back into the array
+                                    $('#park').val(item.park[1]); //Storing park back into the array
+                                    //We have to save one item at a time to be able to save the data into the array.
+                    		};
+                    			
+                    	   $.couch.db("mydb").saveDoc(doc, 
+                    	   {
+                    			    success: function(data) 
+                    			    {
+                    			        console.log(data);
+                    			    },
+                    			    error: function(status) 
+                    			    {
+                    			        console.log(status);
+                    			    }
+                    			});
+                    	   
+                    	   //Save new doc to key
+                    	   //Delete oldKey
                            
                            $.couch.db('lastName').removeDoc( //Save over the old key 
                            alert("Game was edited!");
