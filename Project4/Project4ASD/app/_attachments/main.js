@@ -76,8 +76,8 @@
             
             $(document).on('pageshow', '#lastName', function() //Start of lastName.html js code
             {
-                var _id:  gameID;
-                var _rev: gameRev;
+                var gameID = _id;
+                var gameRev = _rev;
                 
                 var urlVars = function()
                 { 
@@ -164,7 +164,7 @@
                        {
                            $.couch.db('lastName').saveDoc(
                                {
-                                   _id:gameID, 
+                                   _id: gameID, 
                                    _rev: gameRev
                                    
                                    $('#lastName').val(value.lastName[1]); //Not sure if this is right, but 
