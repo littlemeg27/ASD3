@@ -77,8 +77,8 @@
             
             $(document).on('pageshow', '#lastName', function() //Start of lastName.html js code
             {
-                var gameID = _id; //Have to figure out why this is coming up undefined
-                var gameRev = _rev; //Also coming up undefined
+                //var gameID = _id; //Have to figure out why this is coming up undefined
+                //var gameRev = _rev; //Also coming up undefined
                 
                 var urlVars = function()
                 { 
@@ -124,9 +124,12 @@
                                                          '<li>'+ item.phoneNumber +'</li>'+
                                                          '<li>'+ item.numberOfPeople +'</li>'+
                                                          '<li>'+ item.park +'</li>' +
-                                                         '<button data-role="button" id="editItem" data-id=" ' + gameID + ' " data-rev=" ' + gameRev + ' ">Edit</button>' +
-                                                         '<button data-role="button" id="deleteItem" data-id=" ' + gameID + ' " data-rev=" ' + gameRev + ' ">Delete</button>' 
-                                                       )
+                                                         '<button data-role="button" id="editItem">Edit</button>' +
+                                                         '<button data-role="button" id="deleteItem">Delete</button>'
+                                                         /*'<button data-role="button" id="editItem"  data-id=" ' + gameID + ' " data-rev=" ' + gameRev + ' ">Edit</button>' +
+                                                         '<button data-role="button" id="deleteItem" data-id=" ' + gameID + ' " data-rev=" ' + gameRev + ' ">Delete</button>'*/ 
+                                                         //Above are the buttons with the rev and id. 
+                                                        )
                                                   )
                                                             );
                                });
@@ -136,7 +139,7 @@
                  
                    
                     
-                       $('#deleteItem').on('click', function() //deleteButton
+                      /* $('#deleteItem').on('click', function() //deleteButton
                        {
                            var askForPermission = confirm("Do you want to delete this game?");
                            
@@ -205,6 +208,6 @@
                                 });
                              
                                alert("Game was edited!");
-                          });
+                          });*/
                        
             }); //End of lastName.html js code.

@@ -6,7 +6,7 @@ function (doc)
 			{
 			"lastName": doc.lastName,
 			"phoneNumber": doc.phoneNumber,
-			"game": doc.game,
+			"park": doc.park,
 			"numberOfPeople": doc.numberOfPeople
 			});
 		}
